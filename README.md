@@ -12,9 +12,8 @@ mecânica de Pokemon onde é possível monitorar e interagir
 com os Pokemons tanto no seu time principal quanto no PC.
 
 Eu criei um repositório contendo o protótipo vibe codado
-deste programa disponível em que está disponível [neste
-repositório aqui]
-(https://github.com/KitsuneHeartsFM/Trabalho-Monitoramento-Pokemon-Prototipo)
+deste programa disponível em que está disponível em
+https://github.com/KitsuneHeartsFM/Trabalho-Monitoramento-Pokemon-Prototipo
 para quem estiver mais interessado em ver o início de tudo.
 
 ## Ferramentas usadas no projeto
