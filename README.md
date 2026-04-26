@@ -2,10 +2,10 @@
  
  ## Sobre este projeto
 
-    Este repositório tem o intuito armazenar meu progresso 
-    Desenvolvendo o projeto da disciplina **Complexidade de
-    Algoritmos** do curso de **Bacharelado em Sistemas de
-    Informação**.
+Este repositório tem o intuito armazenar meu progresso 
+Desenvolvendo o projeto da disciplina **Complexidade de
+Algoritmos** do curso de **Bacharelado em Sistemas de
+Informação**.
 
     O plano é criar um programa que cria uma simulação da
     mecânica de Pokemon onde é possível monitorar e interagir 
