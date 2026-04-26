@@ -1,6 +1,7 @@
 # Projeto Monitoramento Pokemon
  
  ## Sobre este projeto
+
     Este repositório tem o intuito armazenar meu progresso 
     Desenvolvendo o projeto da disciplina **Complexidade de
     Algoritmos** do curso de **Bacharelado em Sistemas de
@@ -17,6 +18,7 @@
     para quem estiver mais interessado em ver o início de tudo.
 
 ## Ferramentas usadas no projeto
+
     1. C# como principal ~~e única~~ linguagem de programação
     utilizada para a criação do programa;
 
