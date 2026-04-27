@@ -1,3 +1,14 @@
+/// <summary>
+/// Arquivo do tipo Enum que armazena
+/// os nomes das espécies Pokemon que
+/// serão utilizados no programa
+/// 
+/// Por questão de simplicidade e redução
+/// de escopo, muitos Pokemons foram cortados,
+/// A pokedex regional de Hoenn (gen 3) possúi
+/// 212 Pokemons distintos, incluindo Pokemons
+/// de regiões anteriores vide Kanto e Johto
+/// </summary>
 public enum PokemonSpecies
 {
     Treecko,    // 0

@@ -19,7 +19,11 @@ para quem estiver mais interessado em ver o início de tudo.
 ## Ferramentas usadas no projeto
 
 1. C# como principal ~~e única~~ linguagem de programação
-utilizada para a criação do programa;
+utilizada para a criação do programa, versões 10.0/8.0 do
+SDK do .Net(Dotnet) utilizado (A principal foi a versão 10.0,
+mas pode ocorrer de precisar baixar a versão 8.0 por eu ter 
+testado um projeto meu de 2024 feito usando o .Net 8.0 e 
+Raylib);
 
 2. Raylib como a espinha dorsal da parte interativa do 
 projeto, isto é, na parte de interface gráfica e interação
