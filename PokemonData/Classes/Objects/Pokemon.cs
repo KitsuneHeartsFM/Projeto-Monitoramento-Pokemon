@@ -1,8 +1,164 @@
-public class Pokemon
+/// <summary>
+/// A classe do objeto do Pokemon propriamente dito
+/// </summary>
+/// <param name="id"> o "CPF" do Pokemon </param>
+/// <param name="level"> o nível do Pokemon </param>
+/// <param name="friendship"> a amizade do Pokemon com o treinador</param>
+/// <param name="species"> a espécie do Pokemon </param>
+public class Pokemon(int id, int level, int friendship, PokemonSpecies species)
 {
-    /* TODO:
-    1. Criar os campos de variáveis da classe
-    2. Criar o construtor da classe
-    3. Criar as funções principais da classe
+    // Campos que recebem diretamante dados do construtor
+    
+    /// <summary>
+    /// "CPF" do Pokemon inicializado como um int
+    /// </summary>
+    public int Id {get => field; private set => field = id;}
+    /// <summary>
+    /// Nível do Pokemon, ele só pode ser inicializado
+    /// como um int entre 1 e 100
+    /// </summary>
+    public int Level {get => field; private set => field = Clamp(level, 1, 100);}
+    /// <summary>
+    /// Amizade do Pokemon com o treinador, ela só pode
+    /// ser inicializada como um int entre 0 e 255
+    /// </summary>
+    public int Friendship {get => field; private set => field = Clamp(friendship, 0, 255);}
+    /// <summary>
+    /// Espécie do Pokemon inicializada como objeto da 
+    /// classe PokemonSpecies
+    /// </summary>
+    public PokemonSpecies Species {get => field; private set => field = species;}
+
+    // Campos derivados de Species
+
+    /// <summary>
+    /// Inicialização do campo com a tipagem do Pokemon
+    /// 
+    /// Um objeto do tipo GetTyping é utilizado para que o método
+    /// GetData() seja usado recebendo Species como parãmetro
+    /// </summary>
+    public  Typing? Typing {get => field; private set => field = getTyping.GetData(Species);}
+    /// <summary>
+    /// Inicialização do campo com os pontos base do Pokemon
+    /// 
+    /// Um objeto dom tipo GetBaseStats é utilizado para que o
+    /// método GetData() seja usado recebendo Species como parâmetro 
+    /// </summary>
+    public BaseStats? BaseStats {get => field; private set => field = getBaseStats.GetData(Species);}
+    /// <summary>
+    /// Inicialização do campo com a linha evolutiva do Pokemon
+    /// 
+    /// Um objeto do tipo GetEvolution é utilizado para que o
+    /// método GetData() seja usaado recebendo Species como parâmetro 
+    /// </summary>
+    public Evolution? Evolution {get => field; private set => field = getEvolution.GetData(Species);}
+    /// <summary>
+    /// Inicialização do campo com o sprite do Pokemon
+    /// 
+    /// Um objeto do tipo GetSprite é utilizado para que o método
+    /// GetData() seja usado recebendo Species como parâmetro
+    /// </summary>
+    public Sprite? Sprite {get => field; private set => field = getSprite.GetData(Species);}
+
+    // Variáveis privadas
+
+    /* TODO
+    1. Se viável, fatorar todas as variáveis privadas abaixo para que todas elas
+    sejam inicializadas a partir de IGenerate<T>, Ex.:
+
+    private readonly IGenerate<Typing> getTyping = new GetTyping();
     */
+    
+    /// <summary>
+    /// Instanciação do objeto do tipo GetTyping
+    /// </summary>
+    private readonly GetTyping getTyping = new();
+    /// <summary>
+    /// Instanciação do objeto do tipo GetBaseStats
+    /// </summary>
+    private readonly GetBaseStats getBaseStats = new();
+    /// <summary>
+    /// Instanciação do objeto do tipo GetEvolution
+    /// </summary>
+    private readonly GetEvolution getEvolution = new();
+    /// <summary>
+    /// Instanciação do objeto do tipo GetSprite
+    /// </summary>
+    private readonly GetSprite getSprite = new();
+
+    // Métodos Públicos
+    
+    /// <summary>
+    /// Método público que incrementa em +1 o nível
+    /// atual do Pokemon respeitando o limite entre 
+    /// 1 a até 100
+    /// 
+    /// Complexidade O(1) por ser basicamente um
+    /// Level++ gourmet
+    /// </summary>
+    public void LevelUp()
+    {
+        Level = Clamp(Level + 1, 1, 100);
+    }
+
+    /// <summary>
+    /// Método público que incrementa em +1 os 
+    /// pontos de amizade atuais do Pokemon
+    /// respeitando o limite entre 0 e 255
+    /// 
+    /// Complexidade O(1) por ser basicamente um
+    /// Friendship++ gourmet
+    /// </summary>
+    public void FriendshipUp()
+    {
+        Friendship = Clamp(Friendship + 1, 0, 255);
+    }
+
+    /// <summary>
+    /// Método público que decrementa em -1 os
+    /// pontos de amizade atuais do Pokemon
+    /// respeitando o limite entre 0 e 255
+    /// 
+    /// Complexidade O(1) por ser basicamente um
+    /// Friendship-- gourmet
+    /// </summary>
+    public void FriendshipDown()
+    {
+        Friendship = Clamp(Friendship - 1, 0, 255);
+    }
+
+    // Método Privado
+
+    /// <summary>
+    /// Método privado feito para retornar um valor entre um
+    /// determinado intervalo
+    /// 
+    /// Complexidade O(1) por terem poucos passos necessários para sua
+    /// execução
+    /// </summary>
+    /// <param name="value"> O valor principal a ser inserido </param>
+    /// <param name="min"> O menor valor possível </param>
+    /// <param name="max"> O maior valor possível </param>
+    /// <returns>
+    /// Se o valor principal estiver entre min e max, ele será retornado
+    /// 
+    /// Se estiver abaixo de min, min será retornado
+    /// 
+    /// Se estiver acima de max, max será retornado
+    /// </returns>
+    private int Clamp (int value, int min, int max)
+    {
+        // Condicional que muda o valor de value caso seja menor
+        // que min
+        if (value < min)
+            value = min;
+        
+        // Condicional que muda o valor de value caso seja maior
+        // que max
+        if (value > max)
+            value = max;
+        
+        // A instrução de retorno do método
+        return value;
+    }
 }
