@@ -1,9 +1,9 @@
 /// <summary>
-/// Classe com métodos estáticos para coletar os 
+/// Classe com métodos para coletar os 
 /// pontos base das espécies Pokemon registradas
 /// no Programa
 /// </summary>
-public class GetBaseStats
+public class GetBaseStats : IGenerate<BaseStats>
 {
     /// <summary>
     /// Método que retorna os pontos base da espécie
@@ -27,7 +27,7 @@ public class GetBaseStats
     /// customizada NonExistentPokemon é disparada para fins de 
     /// evitar complicações futuras
     /// </exception>
-    public static BaseStats GetData(PokemonSpecies species)
+    public BaseStats GetData(PokemonSpecies species)
     {
         // Uma diretiva return misturada com switch case
         // Até onde estou ciente, só no C# isso é possível,
@@ -98,7 +98,7 @@ public class GetBaseStats
     /// Um Array de inteiros com os 6 itens da propriedade ToArray
     /// da classe BaseStats
     /// </returns>
-    public static int[] GetDataArray(PokemonSpecies species)
+    public int[] GetDataArray(PokemonSpecies species)
     {
         // Acho que isso não precisa de explicação do que faz né?
         return GetData(species).ToArray();

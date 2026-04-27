@@ -2,7 +2,7 @@
 /// Classe com métodos estáticos para retornar
 /// a tipagem de um Pokemon inserido
 /// </summary>
-public class GetTyping
+public class GetTyping : IGenerate<Typing>
 {
     /// <summary>
     /// Método privado que retorna o tipo primário do Pokemon
@@ -19,7 +19,7 @@ public class GetTyping
     /// onde a espécie Pokemon inserida seja uma que ainda
     /// não foi registrada dentro do código do programa
     /// </exception>
-    private static Types GetPrimary(PokemonSpecies species)
+    private Types GetPrimary(PokemonSpecies species)
     {
         return species switch
         {
@@ -92,7 +92,7 @@ public class GetTyping
     /// 
     /// Por questão de conveniência, o retorno padrão é sempre o nulo
     /// </returns>
-    private static Types? GetSecondary(PokemonSpecies species)
+    private Types? GetSecondary(PokemonSpecies species)
     {
         return species switch
         {
@@ -144,7 +144,7 @@ public class GetTyping
     /// GetSecondary() é nulo, com o primeiro retorno vindo caso seja
     /// verdade e o segundo vindo caso o contrário
     /// </returns>
-    public static Typing GetData(PokemonSpecies species)
+    public Typing GetData(PokemonSpecies species)
     {
         return GetSecondary(species) == null ? new(GetPrimary(species)) : new(GetPrimary(species), GetSecondary(species));
     }
