@@ -183,4 +183,8 @@ public class PokemonPc(int size = 4) : IStorage
         pc = newPc;
     }
 
+    public bool UpdatePokemon(int position)
+    {
+        return false;
+    }
 }

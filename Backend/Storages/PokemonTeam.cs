@@ -111,7 +111,7 @@ public class PokemonTeam : IStorage
         for (int i = position; i < quantity - 1; i++)
             team[i] = team[i + 1];
 
-        team[quantity - 1] = null;
+        team[quantity - 1] = null!;
         quantity--;
 
         return removed;
@@ -157,5 +157,28 @@ public class PokemonTeam : IStorage
     public int GetQuantity()
     {
         return quantity;
+    }
+
+    public bool UpdatePokemon(int position)
+    {
+        if (position < 0 || position >= quantity)
+            throw new PokemonStorageException();
+
+        var currentPoke = team[position];
+        var evolution = team[position].Evolution?.EvolvesTo;
+
+        bool canEvolve = currentPoke.Level >= currentPoke.Evolution?.NextEvolutionLevel && currentPoke.Evolution.NextEvolutionLevel != null;
+
+        if (evolution != null && canEvolve)
+        {
+            team[position] = CreatePokemon(currentPoke.Id, currentPoke.Level, currentPoke.Friendship, (PokemonSpecies)evolution);
+        }
+
+        return true;
+    }
+
+    private Pokemon CreatePokemon(int id, int level, int friendship, PokemonSpecies species)
+    {
+        return new(id, level, friendship, species);
     }
 }

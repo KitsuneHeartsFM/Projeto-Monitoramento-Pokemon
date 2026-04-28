@@ -44,4 +44,6 @@ public interface IStorage
     /// Funcão que retorna quantos Pokemons estão armazenados no local
     /// </summary>
     int GetQuantity();
+
+    bool UpdatePokemon(int position);
 }
