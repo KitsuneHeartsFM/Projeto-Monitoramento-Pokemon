@@ -7,7 +7,7 @@
 /// <param name="evolvesTo?"> Para qual Pokemon pode evoluir </param>
 /// <param name="lastEvolutionLevel?"> Em que nível ele pode ter evoluido </param>
 /// <param name="evolvedFrom?"> De qual Pokemon ele evoluiu </param>
-public class Evolution (int? nextEvolutionLevel = null, PokemonSpecies? evolvesTo = null, int? lastEvolutionLevel = null, PokemonSpecies? evolvedFrom = null)
+public class Evolution (int? nextEvolutionLevel = null, Pokemon? evolvesTo = null, int? lastEvolutionLevel = null, Pokemon? evolvedFrom = null)
 {
     /// <summary>
     /// Este campo armazena o nível onde este Pokemon pode evoluir
@@ -21,7 +21,7 @@ public class Evolution (int? nextEvolutionLevel = null, PokemonSpecies? evolvesT
     /// 
     /// Ele pode ser nulo pelo mesmo motivo de NextEvolutionLevel
     /// </summary>
-    public PokemonSpecies? EvolvesTo {get => field; private set => field = evolvesTo;}
+    public Pokemon? EvolvesTo {get => field; private set => field = evolvesTo;}
     /// <summary>
     /// Este campo armazena em qual nível o Pokemon pode ter evoluído
     /// 
@@ -34,7 +34,7 @@ public class Evolution (int? nextEvolutionLevel = null, PokemonSpecies? evolvesT
     /// 
     /// Ele pode ser nulo pelo mesmo motivo de LastEvolutionLevel
     /// </summary>
-    public PokemonSpecies? EvolvedFrom {get => field; private set => field = evolvedFrom;}
+    public Pokemon? EvolvedFrom {get => field; private set => field = evolvedFrom;}
 
     /// <summary>
     /// Uma sobrecarga do método ToString() para retornar os dados a cerca das

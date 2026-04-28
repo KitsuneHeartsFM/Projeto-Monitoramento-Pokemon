@@ -5,5 +5,11 @@
 /// <typeparam name="T"></typeparam>
 public interface IGenerate<T>
 {
-    public T GetData(PokemonSpecies species);
+    /// <summary>
+    /// Método da interface a ser implementado pelas classes
+    /// da familia Get
+    /// </summary>
+    /// <param name="species"> A espécie Pokemon a ser inserida </param>
+    /// <returns> Um objeto que sobreescreve o generic T </returns>
+    public T GetData(Pokemon species);
 }

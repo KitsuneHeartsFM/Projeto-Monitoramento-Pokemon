@@ -19,52 +19,52 @@ public class GetTyping : IGenerate<Typing>
     /// onde a espécie Pokemon inserida seja uma que ainda
     /// não foi registrada dentro do código do programa
     /// </exception>
-    private Types GetPrimary(PokemonSpecies species)
+    private Types GetPrimary(Pokemon species)
     {
         return species switch
         {
             // Retorno do tipo primário do Treecko
-            PokemonSpecies.Treecko => Types.Grass,
+            Pokemon.Treecko => Types.Grass,
             // Retorno do tipo primário do Grovyle
-            PokemonSpecies.Grovyle => Types.Grass,
+            Pokemon.Grovyle => Types.Grass,
             // Retorno do tipo primário do Sceptile
-            PokemonSpecies.Sceptile => Types.Grass,
+            Pokemon.Sceptile => Types.Grass,
             // Retorno do tipo primário do Torchic
-            PokemonSpecies.Torchic => Types.Fire,
+            Pokemon.Torchic => Types.Fire,
             // Retorno do tipo primário do Combusken
-            PokemonSpecies.Combusken => Types.Fire,
+            Pokemon.Combusken => Types.Fire,
             // Retorno do tipo primário do Blaziken
-            PokemonSpecies.Blaziken => Types.Fire,
+            Pokemon.Blaziken => Types.Fire,
             // Retorno do tipo primário do Mudkip
-            PokemonSpecies.Mudkip => Types.Water,
+            Pokemon.Mudkip => Types.Water,
             // Retorno do tipo primário do Marshtomp
-            PokemonSpecies.Marshtomp => Types.Water,
+            Pokemon.Marshtomp => Types.Water,
             // Retorno do tipo primário do Swampert
-            PokemonSpecies.Swampert => Types.Water,
+            Pokemon.Swampert => Types.Water,
             // Retorno do tipo primário do Poochyena
-            PokemonSpecies.Poochyena => Types.Dark,
+            Pokemon.Poochyena => Types.Dark,
             // Retorno do tipo primário do Mightyena
-            PokemonSpecies.Mightyena => Types.Dark,
+            Pokemon.Mightyena => Types.Dark,
             // Retorno do tipo primário do Zigzagoon
-            PokemonSpecies.Zigzagoon => Types.Normal,
+            Pokemon.Zigzagoon => Types.Normal,
             // Retorno do tipo primário do Linoone
-            PokemonSpecies.Linoone => Types.Normal,
+            Pokemon.Linoone => Types.Normal,
             // Retorno do tipo primário do Taillow
-            PokemonSpecies.Taillow => Types.Normal,
+            Pokemon.Taillow => Types.Normal,
             // Retorno do tipo primário do Sweallow
-            PokemonSpecies.Sweallow => Types.Normal,
+            Pokemon.Sweallow => Types.Normal,
             // Retorno do tipo primário da Ralts
-            PokemonSpecies.Ralts => Types.Psychic,
+            Pokemon.Ralts => Types.Psychic,
             // Retorno do tipo primário da Kirlia
-            PokemonSpecies.Kirlia => Types.Psychic,
+            Pokemon.Kirlia => Types.Psychic,
             // Retorno do tipo primário da Gardevoir
-            PokemonSpecies.Gardevoir => Types.Psychic,
+            Pokemon.Gardevoir => Types.Psychic,
             // Retorno do tipo primário do Aron
-            PokemonSpecies.Aron => Types.Steel,
+            Pokemon.Aron => Types.Steel,
             // Retorno do tipo primário do Lairon
-            PokemonSpecies.Lairon => Types.Steel,
+            Pokemon.Lairon => Types.Steel,
             // Retorno do tipo primário do Aggron
-            PokemonSpecies.Aggron => Types.Steel,
+            Pokemon.Aggron => Types.Steel,
             // Travinha de segurança do método
             _ => throw new NonExistentPokemon()
         };
@@ -92,28 +92,28 @@ public class GetTyping : IGenerate<Typing>
     /// 
     /// Por questão de conveniência, o retorno padrão é sempre o nulo
     /// </returns>
-    private Types? GetSecondary(PokemonSpecies species)
+    private Types? GetSecondary(Pokemon species)
     {
         return species switch
         {
             // Retorno do tipo secundário do Combusken (Fogo/Lutador)
-            PokemonSpecies.Combusken => Types.Fighting,
+            Pokemon.Combusken => Types.Fighting,
             // Retorno do tipo secundário do Blaziken (Fogo/Lutador)
-            PokemonSpecies.Blaziken => Types.Fighting,
+            Pokemon.Blaziken => Types.Fighting,
             // Retorno do tipo secundário do Marshtomp (Água/Terra)
-            PokemonSpecies.Marshtomp => Types.Ground,
+            Pokemon.Marshtomp => Types.Ground,
             // Retorno do tipo secundário do Swampert (Água/Terra)
-            PokemonSpecies.Swampert => Types.Ground,
+            Pokemon.Swampert => Types.Ground,
             // Retorno do tipo secundário do Taillow (Normal/Voador)
-            PokemonSpecies.Taillow => Types.Flying,
+            Pokemon.Taillow => Types.Flying,
             // Retorno do tipo secundário do Sweallow (Normal/Voador)
-            PokemonSpecies.Sweallow => Types.Flying,
+            Pokemon.Sweallow => Types.Flying,
             // Retorno do tipo secundário do Aron (Aço/Rocha) 
-            PokemonSpecies.Aron => Types.Rock,
+            Pokemon.Aron => Types.Rock,
             // Retorno do tipo secundário do Lairon (Aço/Rocha)
-            PokemonSpecies.Lairon => Types.Rock,
+            Pokemon.Lairon => Types.Rock,
             // Retorno do tipo secundário do Aggron (Aço/Rocha)
-            PokemonSpecies.Aggron => Types.Rock,
+            Pokemon.Aggron => Types.Rock,
             // Retorno nulo para o caso do Pokemon inserido 
             // ser monotipo
             _ => null
@@ -144,7 +144,7 @@ public class GetTyping : IGenerate<Typing>
     /// GetSecondary() é nulo, com o primeiro retorno vindo caso seja
     /// verdade e o segundo vindo caso o contrário
     /// </returns>
-    public Typing GetData(PokemonSpecies species)
+    public Typing GetData(Pokemon species)
     {
         return GetSecondary(species) == null ? new(GetPrimary(species)) : new(GetPrimary(species), GetSecondary(species));
     }

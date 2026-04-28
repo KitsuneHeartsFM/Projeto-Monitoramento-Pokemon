@@ -22,52 +22,52 @@ public class GetSprite : IGenerate<Sprite>
     /// Caso ocorra de inserir um Pokemon indisponível,
     /// esta exceção será disparada
     /// </exception>
-    public Sprite GetData(PokemonSpecies species)
+    public Sprite GetData(Pokemon species)
     {
         return species switch
         {
             // Sprite do Treecko
-            PokemonSpecies.Treecko => new("Img/1. Treecko.png"),
+            Pokemon.Treecko => new("Img/1. Treecko.png"),
             // Sprite do Grovyle
-            PokemonSpecies.Grovyle => new("Img/2. Grovyle.png"),
+            Pokemon.Grovyle => new("Img/2. Grovyle.png"),
             // Sprite do Sceptile
-            PokemonSpecies.Sceptile => new("Img/3. Sceptile.png"),
+            Pokemon.Sceptile => new("Img/3. Sceptile.png"),
             // Sprite do Torchic
-            PokemonSpecies.Torchic => new("Img/4. Torchic.png"),
+            Pokemon.Torchic => new("Img/4. Torchic.png"),
             // Sprite do Combusken
-            PokemonSpecies.Combusken => new("Img/5. Combusken.png"),
+            Pokemon.Combusken => new("Img/5. Combusken.png"),
             // Sprite do Blaziken
-            PokemonSpecies.Blaziken => new("Img/6. Blaziken.png"),
+            Pokemon.Blaziken => new("Img/6. Blaziken.png"),
             // Sprite do Mudkip
-            PokemonSpecies.Mudkip => new("Img/7. Mudkip.png"),
+            Pokemon.Mudkip => new("Img/7. Mudkip.png"),
             // Sprite do Marshtomp
-            PokemonSpecies.Marshtomp => new("Img/8. Marshtomp.png"),
+            Pokemon.Marshtomp => new("Img/8. Marshtomp.png"),
             // Sprite do Swampert
-            PokemonSpecies.Swampert => new("Img/9. Swampert.png"),
+            Pokemon.Swampert => new("Img/9. Swampert.png"),
             // Sprite do Poochyena
-            PokemonSpecies.Poochyena => new("Img/10. Poochyena.png"),
+            Pokemon.Poochyena => new("Img/10. Poochyena.png"),
             // Sprite do Mightyena
-            PokemonSpecies.Mightyena => new("Img/11. Mightyena.png"),
+            Pokemon.Mightyena => new("Img/11. Mightyena.png"),
             // Sprite do Zigzagoon
-            PokemonSpecies.Zigzagoon => new("Img/12. Zigzagoon.png"),
+            Pokemon.Zigzagoon => new("Img/12. Zigzagoon.png"),
             // Sprite do Linoone
-            PokemonSpecies.Linoone => new("Img/13. Linoone.png"),
+            Pokemon.Linoone => new("Img/13. Linoone.png"),
             // Sprite do Taillow
-            PokemonSpecies.Taillow => new("Img/14. Taillow.png"),
+            Pokemon.Taillow => new("Img/14. Taillow.png"),
             // Sprite do Sweallow
-            PokemonSpecies.Sweallow => new("Img/15. Sweallow.png"),
+            Pokemon.Sweallow => new("Img/15. Sweallow.png"),
             // Sprite da Ralts
-            PokemonSpecies.Ralts => new("Img/16. Ralts.png"),
+            Pokemon.Ralts => new("Img/16. Ralts.png"),
             // Sprite da Kirlia
-            PokemonSpecies.Kirlia => new("Img/17. Kirlia.png"),
+            Pokemon.Kirlia => new("Img/17. Kirlia.png"),
             // Sprite da Gardevoir
-            PokemonSpecies.Gardevoir => new("Img/18. Gardevoir.png"),
+            Pokemon.Gardevoir => new("Img/18. Gardevoir.png"),
             // Sprite do Aron
-            PokemonSpecies.Aron => new("Img/19. Aron.png"),
+            Pokemon.Aron => new("Img/19. Aron.png"),
             // Sprite do Lairon
-            PokemonSpecies.Lairon => new("Img/20. Lairon.png"),
+            Pokemon.Lairon => new("Img/20. Lairon.png"),
             // Sprite do Aggron
-            PokemonSpecies.Aggron => new("Img/21. Aggron.png"),
+            Pokemon.Aggron => new("Img/21. Aggron.png"),
             
             _ => throw new NonExistentPokemon()
         };
