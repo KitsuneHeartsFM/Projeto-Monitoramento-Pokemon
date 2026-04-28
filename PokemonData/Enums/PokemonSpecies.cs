@@ -9,7 +9,7 @@
 /// 212 Pokemons distintos, incluindo Pokemons
 /// de regiões anteriores vide Kanto e Johto
 /// </summary>
-public enum Pokemon
+public enum PokemonSpecies
 {
     Treecko,    // 0
     Grovyle,    // 1

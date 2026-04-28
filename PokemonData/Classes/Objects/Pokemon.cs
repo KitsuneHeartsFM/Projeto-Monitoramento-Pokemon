@@ -5,7 +5,7 @@
 /// <param name="level"> o nível do Pokemon </param>
 /// <param name="friendship"> a amizade do Pokemon com o treinador</param>
 /// <param name="species"> a espécie do Pokemon </param>
-public class Pokemon(int id, int level, int friendship, Pokemon species)
+public class Pokemon(int id, int level, int friendship, PokemonSpecies species)
 {
     // Campos que recebem diretamante dados do construtor
     
@@ -27,7 +27,7 @@ public class Pokemon(int id, int level, int friendship, Pokemon species)
     /// Espécie do Pokemon inicializada como objeto da 
     /// classe PokemonSpecies
     /// </summary>
-    public Pokemon Species {get => field; private set => field = species;}
+    public PokemonSpecies Species {get => field; private set => field = species;}
 
     // Campos derivados de Species
 

@@ -28,7 +28,7 @@ public class GetPokemon : IGenerate<Pokemon>
     /// </summary>
     /// <param name="species"> A espécie do Pokemon a ser inserida </param>
     /// <returns> Uma instância de um objeto do tipo Pokemon </returns>
-    public Pokemon GetData(Pokemon species)
+    public Pokemon GetData(PokemonSpecies species)
     {
         // instancia randomizada do nível do Pokemon entre 1 e 100
         int level = random.Next(1, 101);
@@ -62,7 +62,7 @@ public class GetPokemon : IGenerate<Pokemon>
         Array pokemonGroup = Enum.GetValues(typeof(Pokemon));
         // Um objeto com o valor de PokemonSpecies obtido através do objeto
         // pokemonGroup e um randomizador com o tamanho de PokemonSpecies
-        Pokemon pokemon = (Pokemon) pokemonGroup.GetValue(random.Next(pokemonGroup.Length))!;
+        PokemonSpecies pokemon = (PokemonSpecies) pokemonGroup.GetValue(random.Next(pokemonGroup.Length))!;
 
         // For loop onde são gerados os Pokemons de acordo
         // a quantidade desejada pelo usuário

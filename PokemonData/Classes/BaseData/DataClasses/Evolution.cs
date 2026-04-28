@@ -7,7 +7,7 @@
 /// <param name="evolvesTo?"> Para qual Pokemon pode evoluir </param>
 /// <param name="lastEvolutionLevel?"> Em que nível ele pode ter evoluido </param>
 /// <param name="evolvedFrom?"> De qual Pokemon ele evoluiu </param>
-public class Evolution (int? nextEvolutionLevel = null, Pokemon? evolvesTo = null, int? lastEvolutionLevel = null, Pokemon? evolvedFrom = null)
+public class Evolution (int? nextEvolutionLevel = null, PokemonSpecies? evolvesTo = null, int? lastEvolutionLevel = null, PokemonSpecies? evolvedFrom = null)
 {
     /// <summary>
     /// Este campo armazena o nível onde este Pokemon pode evoluir
@@ -21,7 +21,7 @@ public class Evolution (int? nextEvolutionLevel = null, Pokemon? evolvesTo = nul
     /// 
     /// Ele pode ser nulo pelo mesmo motivo de NextEvolutionLevel
     /// </summary>
-    public Pokemon? EvolvesTo {get => field; private set => field = evolvesTo;}
+    public PokemonSpecies? EvolvesTo {get => field; private set => field = evolvesTo;}
     /// <summary>
     /// Este campo armazena em qual nível o Pokemon pode ter evoluído
     /// 
@@ -34,7 +34,7 @@ public class Evolution (int? nextEvolutionLevel = null, Pokemon? evolvesTo = nul
     /// 
     /// Ele pode ser nulo pelo mesmo motivo de LastEvolutionLevel
     /// </summary>
-    public Pokemon? EvolvedFrom {get => field; private set => field = evolvedFrom;}
+    public PokemonSpecies? EvolvedFrom {get => field; private set => field = evolvedFrom;}
 
     /// <summary>
     /// Uma sobrecarga do método ToString() para retornar os dados a cerca das
@@ -72,17 +72,17 @@ public class Evolution (int? nextEvolutionLevel = null, Pokemon? evolvesTo = nul
         // Condicional para sair a impressão do caso 1
         if (NextEvolutionLevel != null && LastEvolutionLevel != null)
         {
-            output = $"It evolved from {EvolvedFrom} at level {LastEvolutionLevel} and may evolve to {EvolvesTo} by the level {NextEvolutionLevel}!";
+            output = $"It evolved from {EvolvedFrom} at level {LastEvolutionLevel} and may evolve to {EvolvesTo} by the level {NextEvolutionLevel}.";
         }
         // Condicional para sair a impressão do caso 2
         else if (NextEvolutionLevel != null && LastEvolutionLevel == null)
         {
-            output = $"It may evolve to {EvolvesTo} by the level {NextEvolutionLevel}!";
+            output = $"It may evolve to {EvolvesTo} by the level {NextEvolutionLevel}.";
         }
         // Condicional para sair a impressão do caso 3
         else
         {
-            output = $"It evolved from {EvolvedFrom} at level {LastEvolutionLevel}!";
+            output = $"It evolved from {EvolvedFrom} at level {LastEvolutionLevel}.";
         }
 
         // O retorno de ToString() com as modificações vindas na variável output

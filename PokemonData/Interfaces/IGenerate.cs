@@ -11,5 +11,5 @@ public interface IGenerate<T>
     /// </summary>
     /// <param name="species"> A espécie Pokemon a ser inserida </param>
     /// <returns> Um objeto que sobreescreve o generic T </returns>
-    public T GetData(Pokemon species);
+    public T GetData(PokemonSpecies species);
 }

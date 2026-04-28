@@ -19,39 +19,39 @@ public class GetEvolution : IGenerate<Evolution>
     /// o Pokemon inserido não seja um válido para o
     /// método
     /// </exception>
-    public Evolution GetData(Pokemon species)
+    public Evolution GetData(PokemonSpecies species)
     {
         return species switch
         {
             // Linha Evolutiva do Sceptile
-            Pokemon.Treecko => new Evolution(16, Pokemon.Grovyle),
-            Pokemon.Grovyle => new Evolution(36, Pokemon.Sceptile, 16, Pokemon.Treecko),
-            Pokemon.Sceptile => new Evolution(null, null, 36, Pokemon.Grovyle),
+            PokemonSpecies.Treecko => new Evolution(16, PokemonSpecies.Grovyle),
+            PokemonSpecies.Grovyle => new Evolution(36, PokemonSpecies.Sceptile, 16, PokemonSpecies.Treecko),
+            PokemonSpecies.Sceptile => new Evolution(null, null, 36, PokemonSpecies.Grovyle),
             // Linha Evolutiva do Blaziken
-            Pokemon.Torchic => new Evolution(16, Pokemon.Combusken),
-            Pokemon.Combusken => new Evolution(36, Pokemon.Blaziken, 16, Pokemon.Torchic),
-            Pokemon.Blaziken  => new Evolution(null, null, 36, Pokemon.Combusken),
+            PokemonSpecies.Torchic => new Evolution(16, PokemonSpecies.Combusken),
+            PokemonSpecies.Combusken => new Evolution(36, PokemonSpecies.Blaziken, 16, PokemonSpecies.Torchic),
+            PokemonSpecies.Blaziken  => new Evolution(null, null, 36, PokemonSpecies.Combusken),
             // Linha Evolutiva do Swampert
-            Pokemon.Mudkip => new Evolution(16, Pokemon.Marshtomp),
-            Pokemon.Marshtomp => new Evolution(36, Pokemon.Swampert, 16, Pokemon.Mudkip),
-            Pokemon.Swampert => new Evolution(null, null, 36, Pokemon.Marshtomp),
+            PokemonSpecies.Mudkip => new Evolution(16, PokemonSpecies.Marshtomp),
+            PokemonSpecies.Marshtomp => new Evolution(36, PokemonSpecies.Swampert, 16, PokemonSpecies.Mudkip),
+            PokemonSpecies.Swampert => new Evolution(null, null, 36, PokemonSpecies.Marshtomp),
             // Linha Evolutiva do Mightyena
-            Pokemon.Poochyena => new Evolution(18, Pokemon.Mightyena),
-            Pokemon.Mightyena => new Evolution(null, null, 18, Pokemon.Poochyena),
+            PokemonSpecies.Poochyena => new Evolution(18, PokemonSpecies.Mightyena),
+            PokemonSpecies.Mightyena => new Evolution(null, null, 18, PokemonSpecies.Poochyena),
             // Linha Evolutiva do Linoone
-            Pokemon.Zigzagoon => new Evolution(20, Pokemon.Linoone),
-            Pokemon.Linoone => new Evolution(null, null, 20, Pokemon.Zigzagoon),
+            PokemonSpecies.Zigzagoon => new Evolution(20, PokemonSpecies.Linoone),
+            PokemonSpecies.Linoone => new Evolution(null, null, 20, PokemonSpecies.Zigzagoon),
             // Linha Evolutiva do Sweallow
-            Pokemon.Taillow => new Evolution(22, Pokemon.Sweallow),
-            Pokemon.Sweallow => new Evolution(null, null, 22, Pokemon.Taillow),
+            PokemonSpecies.Taillow => new Evolution(22, PokemonSpecies.Sweallow),
+            PokemonSpecies.Sweallow => new Evolution(null, null, 22, PokemonSpecies.Taillow),
             // Linha Evolutiva da Gardevoir
-            Pokemon.Ralts => new Evolution(20, Pokemon.Kirlia),
-            Pokemon.Kirlia => new Evolution(30, Pokemon.Gardevoir, 20, Pokemon.Ralts),
-            Pokemon.Gardevoir => new Evolution(null, null, 30, Pokemon.Kirlia),
+            PokemonSpecies.Ralts => new Evolution(20, PokemonSpecies.Kirlia),
+            PokemonSpecies.Kirlia => new Evolution(30, PokemonSpecies.Gardevoir, 20, PokemonSpecies.Ralts),
+            PokemonSpecies.Gardevoir => new Evolution(null, null, 30, PokemonSpecies.Kirlia),
             // Linha Evolutiva do Aggron
-            Pokemon.Aron => new Evolution(32, Pokemon.Lairon),
-            Pokemon.Lairon => new Evolution(42, Pokemon.Aggron, 32, Pokemon.Aron),
-            Pokemon.Aggron => new Evolution(null, null, 42, Pokemon.Lairon),
+            PokemonSpecies.Aron => new Evolution(32, PokemonSpecies.Lairon),
+            PokemonSpecies.Lairon => new Evolution(42, PokemonSpecies.Aggron, 32, PokemonSpecies.Aron),
+            PokemonSpecies.Aggron => new Evolution(null, null, 42, PokemonSpecies.Lairon),
             // Trava de segurança
             _ => throw new NonExistentPokemon()
         };

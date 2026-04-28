@@ -27,7 +27,7 @@ public class GetBaseStats : IGenerate<BaseStats>
     /// customizada NonExistentPokemon é disparada para fins de 
     /// evitar complicações futuras
     /// </exception>
-    public BaseStats GetData(Pokemon species)
+    public BaseStats GetData(PokemonSpecies species)
     {
         // Uma diretiva return misturada com switch case
         // Até onde estou ciente, só no C# isso é possível,
@@ -36,47 +36,47 @@ public class GetBaseStats : IGenerate<BaseStats>
         return species switch
         {
             // Retorno dos pontos base do Treecko
-            Pokemon.Treecko => new BaseStats(40, 45, 35, 65, 55, 70),
+            PokemonSpecies.Treecko => new BaseStats(40, 45, 35, 65, 55, 70),
             // Retorno dos pontos base do Grovyle
-            Pokemon.Grovyle => new BaseStats(50, 65, 45, 85, 65, 95),
+            PokemonSpecies.Grovyle => new BaseStats(50, 65, 45, 85, 65, 95),
             // Retorno dos pontos base do Sceptile
-            Pokemon.Sceptile => new BaseStats(70, 85, 65, 105, 85, 120),
+            PokemonSpecies.Sceptile => new BaseStats(70, 85, 65, 105, 85, 120),
             // Retorno dos pontos base do Torchic
-            Pokemon.Torchic => new BaseStats(45, 60, 40, 70, 50, 45),
+            PokemonSpecies.Torchic => new BaseStats(45, 60, 40, 70, 50, 45),
             // Retorno dos pontos base do Combusken
-            Pokemon.Combusken => new BaseStats(60, 85, 60, 85, 60, 55),
+            PokemonSpecies.Combusken => new BaseStats(60, 85, 60, 85, 60, 55),
             // Retorno dos pontos base do Blaziken
-            Pokemon.Blaziken => new BaseStats(80, 120, 70, 110, 70, 80),
+            PokemonSpecies.Blaziken => new BaseStats(80, 120, 70, 110, 70, 80),
             // Retorno dos pontos base do Mudkip
-            Pokemon.Mudkip  => new BaseStats(50, 70 , 50, 50, 50, 40),
+            PokemonSpecies.Mudkip  => new BaseStats(50, 70 , 50, 50, 50, 40),
             // Retorno dos pontos base do Marshtomp
-            Pokemon.Marshtomp => new BaseStats(70, 85, 70, 60, 70, 50),
+            PokemonSpecies.Marshtomp => new BaseStats(70, 85, 70, 60, 70, 50),
             // Retorno dos pontos base do Swampert
-            Pokemon.Swampert => new BaseStats(100, 110, 90, 85, 90, 60),
+            PokemonSpecies.Swampert => new BaseStats(100, 110, 90, 85, 90, 60),
             // Retorno dos pontos base do Poochyena
-            Pokemon.Poochyena => new BaseStats(35, 55, 35, 30, 30, 35),
+            PokemonSpecies.Poochyena => new BaseStats(35, 55, 35, 30, 30, 35),
             // Retorno dos pontos base do Mightyena
-            Pokemon.Mightyena => new BaseStats(70, 90, 70, 60, 60, 70),
+            PokemonSpecies.Mightyena => new BaseStats(70, 90, 70, 60, 60, 70),
             // Retorno dos pontos base do Zigzagoon
-            Pokemon.Zigzagoon => new BaseStats(38, 30, 41, 30, 41, 60),
+            PokemonSpecies.Zigzagoon => new BaseStats(38, 30, 41, 30, 41, 60),
             // Retorno dos pontos base do Linoone
-            Pokemon.Linoone => new BaseStats(78, 70, 61, 50, 61, 100),
+            PokemonSpecies.Linoone => new BaseStats(78, 70, 61, 50, 61, 100),
             // Retorno dos pontos base do Taillow
-            Pokemon.Taillow => new BaseStats(40, 55, 30, 30, 30, 85),
+            PokemonSpecies.Taillow => new BaseStats(40, 55, 30, 30, 30, 85),
             // Retorno dos pontos base do Sweallow
-            Pokemon.Sweallow => new BaseStats(60, 85, 60, 50, 50, 125),
+            PokemonSpecies.Sweallow => new BaseStats(60, 85, 60, 50, 50, 125),
             // Retorno dos pontos base da Ralts
-            Pokemon.Ralts => new BaseStats(28, 25, 25, 45, 35, 40),
+            PokemonSpecies.Ralts => new BaseStats(28, 25, 25, 45, 35, 40),
             // Retorno dos pontos base da Kirlia
-            Pokemon.Kirlia => new BaseStats(38, 35, 35, 65, 55, 50),
+            PokemonSpecies.Kirlia => new BaseStats(38, 35, 35, 65, 55, 50),
             // Retorno dos pontos base da Gardevoir
-            Pokemon.Gardevoir => new BaseStats(68, 65, 65, 125, 115, 80),
+            PokemonSpecies.Gardevoir => new BaseStats(68, 65, 65, 125, 115, 80),
             // Retorno dos pontos base do Aron
-            Pokemon.Aron => new BaseStats(50, 70, 100, 40, 40, 30),
+            PokemonSpecies.Aron => new BaseStats(50, 70, 100, 40, 40, 30),
             // Retorno dos pontos base do Lairon
-            Pokemon.Lairon => new BaseStats(60, 90, 140, 50, 50, 40),
+            PokemonSpecies.Lairon => new BaseStats(60, 90, 140, 50, 50, 40),
             // Retorno dos pontos base do Aggron
-            Pokemon.Aggron => new BaseStats(70, 110, 180, 60, 60, 50),
+            PokemonSpecies.Aggron => new BaseStats(70, 110, 180, 60, 60, 50),
             // Trava de segurança para caso um valor inválido seja inserido
             _ => throw new NonExistentPokemon()
         };
@@ -98,7 +98,7 @@ public class GetBaseStats : IGenerate<BaseStats>
     /// Um Array de inteiros com os 6 itens da propriedade ToArray
     /// da classe BaseStats
     /// </returns>
-    public int[] GetDataArray(Pokemon species)
+    public int[] GetDataArray(PokemonSpecies species)
     {
         // Acho que isso não precisa de explicação do que faz né?
         return GetData(species).ToArray();

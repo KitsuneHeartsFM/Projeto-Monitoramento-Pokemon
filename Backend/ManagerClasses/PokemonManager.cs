@@ -22,16 +22,29 @@ public class PokemonManager
 
     public void Deposit(int position)
     {
-        var p = Team.RemovePokemon(position);
+        try
+        {
+            var p = Team.RemovePokemon(position);
 
-        Pc.AddPokemon(p);
+            Pc.AddPokemon(p);
+        }   
+        catch (PokemonStorageException)
+        {
+        }
     }
 
     public void Withdraw(int position)
     {
-        var p = Pc.RemovePokemon(position);
+        try
+        {
+            var p = Pc.RemovePokemon(position);
 
-        Team.AddPokemon(p);
+            if (!Team.AddPokemon(p))
+                Pc.AddPokemonAtPosition(p, position);
+        }
+        catch (PokemonStorageException)
+        {
+        }
     }
 
     public void TimePassing()
@@ -39,10 +52,10 @@ public class PokemonManager
         var TeamList = Team.ListPokemon();
         var PcList = Pc.ListPokemon();
 
-        foreach (var p in TeamList)
-            p.FriendshipUp();
+        for (int i = 0; i < Team.GetQuantity(); i++)
+            TeamList[i].FriendshipUp();
         
-        foreach (var p in PcList)
-            p.FriendshipDown();
+        for (int i = 0; i < Pc.GetQuantity(); i++)
+            PcList[i].FriendshipDown();
     }
 }
