@@ -63,7 +63,7 @@ public class PokemonTeam : IStorage
     /// <returns> Verdadeiro se adicionou o Pokemon, falso se deu errado</returns>
     public bool AddPokemonAtPosition(Pokemon pokemon, int position)
     {
-        if (quantity >= 6 || position < 0 || position >= quantity)
+        if (quantity >= 6 || position < 0 || position > quantity)
             return false;
         
         for (int i = quantity; i > position; i--)
@@ -103,7 +103,7 @@ public class PokemonTeam : IStorage
     /// </exception>
     public Pokemon RemovePokemon(int position)
     {
-        if (position < 0 || position >= quantity || quantity <= 1)
+        if (position < 0 || position >= quantity)
             throw new PokemonStorageException();
         
         var removed = team[position];
@@ -167,7 +167,9 @@ public class PokemonTeam : IStorage
         var currentPoke = team[position];
         var evolution = team[position].Evolution?.EvolvesTo;
 
-        bool canEvolve = currentPoke.Level >= currentPoke.Evolution?.NextEvolutionLevel && currentPoke.Evolution.NextEvolutionLevel != null;
+        bool canEvolve = currentPoke.Evolution != null 
+        && currentPoke.Evolution.NextEvolutionLevel != null
+        && currentPoke.Level >= currentPoke.Evolution.NextEvolutionLevel;
 
         if (evolution != null && canEvolve)
         {

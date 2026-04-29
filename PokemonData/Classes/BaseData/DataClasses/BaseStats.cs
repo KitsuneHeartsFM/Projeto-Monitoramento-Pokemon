@@ -20,27 +20,27 @@ public class BaseStats(int hp, int atk, int def, int spa, int spd, int spe)
     /// <summary>
     /// Health Points - Os pontos de vida do Pokemon
     /// </summary>
-    public int Hp{get => field; private set => field = hp;}
+    public int Hp{get; private set;} = hp;
     /// <summary>
     /// Attack - O quão forte são os ataques físicos do Pokemon
     /// </summary>
-    public int Atk{get => field; private set => field = atk;}
+    public int Atk{get; private set;} = atk;
     /// <summary>
     /// Defense - O quão resistente a ataques físicos é o Pokemon
     /// </summary>
-    public int Def{get => field; private set => field = def;}
+    public int Def{get; private set;} = def;
     /// <summary>
     /// Special Attack - O quão forte são os ataques especiais do Pokemon
     /// </summary>
-    public int Spa{get => field; private set => field = spa;}
+    public int Spa{get; private set;} = spa;
     /// <summary>
     /// Special Defense - O quão resistente a ataques especiais é o Pokemon
     /// </summary>
-    public int Spd{get => field; private set => field = spd;}
+    public int Spd{get; private set;} = spd;
     /// <summary>
     /// Speed - O quão rápido é o Pokemon
     /// </summary>
-    public int Spe{get => field; private set => field = spe;}
+    public int Spe{get; private set;} = spe;
 
     /// <summary>
     /// Método que retorna as informações da classe em forma de Array

@@ -19,7 +19,7 @@ public class Typing (Types primaryType, Types? secondaryType = null)
     /// <summary>
     /// O tipo principal do Pokemon
     /// </summary>
-    public Types PrimaryType {get => field; private set => field = primaryType;}
+    public Types PrimaryType {get; private set;} = primaryType;
     /// <summary>
     /// O tipo secundário do Pokemon
     /// 
@@ -30,12 +30,7 @@ public class Typing (Types primaryType, Types? secondaryType = null)
     /// privado CheckTypeValidity para garantir que ambos
     /// os tipos são diferentes
     /// </summary>
-    public Types? SecondaryType {get => field; private set
-        {
-            field = secondaryType;
-            CheckTypeValidity();
-        }
-    }
+    public Types? SecondaryType {get; private set;} = CheckTypeValidity(primaryType, secondaryType);
 
     /// <summary>
     /// Uma sobrecarga no método ToSttring() derivado da classe Object
@@ -70,8 +65,9 @@ public class Typing (Types primaryType, Types? secondaryType = null)
     /// <exception cref="InvalidTypingException">
     /// Se ambos PrimaryType e SecondaryType forem iguais, a exceção é disparada
     /// </exception>
-    private void CheckTypeValidity()
+    private static Types? CheckTypeValidity(Types input1, Types? input2)
     {
+        var output = input2;
         // Em C#, se coisas como um if/else, um for,
         // um while entre outros dentro de um método
         // tiver apenas uma instrução única, é possível
@@ -87,7 +83,9 @@ public class Typing (Types primaryType, Types? secondaryType = null)
         // outros blocos de instrução. O problema começa quando é mais de uma
         // instrução, pois o ";" da primeira instrução pode interferir no 
         // reconhecimento das instruções seguintes do bloco de if
-        if (PrimaryType == SecondaryType)
+        if (input1 == input2)
             throw new InvalidTypingException();
+        
+        return output;
     }
 }

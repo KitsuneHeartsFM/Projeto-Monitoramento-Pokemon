@@ -12,22 +12,39 @@ public class Pokemon(int id, int level, int friendship, PokemonSpecies species)
     /// <summary>
     /// "CPF" do Pokemon inicializado como um int
     /// </summary>
-    public int Id {get => field; private set => field = id;}
+    public int Id {get; private set;} = id;
     /// <summary>
     /// Nível do Pokemon, ele só pode ser inicializado
     /// como um int entre 1 e 100
     /// </summary>
-    public int Level {get => field; private set => field = Clamp(level, 1, 100);}
+    public int Level {get; private set;} = level;
     /// <summary>
     /// Amizade do Pokemon com o treinador, ela só pode
     /// ser inicializada como um int entre 0 e 255
     /// </summary>
-    public int Friendship {get => field; private set => field = Clamp(friendship, 0, 255);}
+    public int Friendship {get; private set;} = friendship;
     /// <summary>
     /// Espécie do Pokemon inicializada como objeto da 
     /// classe PokemonSpecies
     /// </summary>
-    public PokemonSpecies Species {get => field; private set => field = species;}
+    public PokemonSpecies Species {get; private set;} = species;
+
+    /// <summary>
+    /// Instanciação do objeto do tipo GetTyping
+    /// </summary>
+    private static GetTyping getTyping = new();
+    /// <summary>
+    /// Instanciação do objeto do tipo GetBaseStats
+    /// </summary>
+    private static GetBaseStats getBaseStats = new();
+    /// <summary>
+    /// Instanciação do objeto do tipo GetEvolution
+    /// </summary>
+    private static GetEvolution getEvolution = new();
+    /// <summary>
+    /// Instanciação do objeto do tipo GetSprite
+    /// </summary>
+    private static GetSprite getSprite = new();
 
     // Campos derivados de Species
 
@@ -37,28 +54,28 @@ public class Pokemon(int id, int level, int friendship, PokemonSpecies species)
     /// Um objeto do tipo GetTyping é utilizado para que o método
     /// GetData() seja usado recebendo Species como parãmetro
     /// </summary>
-    public  Typing? Typing {get => field; private set => field = getTyping.GetData(Species);}
+    public  Typing Typing {get; private set;} = getTyping.GetData(species);
     /// <summary>
     /// Inicialização do campo com os pontos base do Pokemon
     /// 
     /// Um objeto dom tipo GetBaseStats é utilizado para que o
     /// método GetData() seja usado recebendo Species como parâmetro 
     /// </summary>
-    public BaseStats? BaseStats {get => field; private set => field = getBaseStats.GetData(Species);}
+    public BaseStats BaseStats {get; private set;} = getBaseStats.GetData(species);
     /// <summary>
     /// Inicialização do campo com a linha evolutiva do Pokemon
     /// 
     /// Um objeto do tipo GetEvolution é utilizado para que o
     /// método GetData() seja usaado recebendo Species como parâmetro 
     /// </summary>
-    public Evolution? Evolution {get => field; private set => field = getEvolution.GetData(Species);}
+    public Evolution Evolution {get; private set;} = getEvolution.GetData(species);
     /// <summary>
     /// Inicialização do campo com o sprite do Pokemon
     /// 
     /// Um objeto do tipo GetSprite é utilizado para que o método
     /// GetData() seja usado recebendo Species como parâmetro
     /// </summary>
-    public Sprite? Sprite {get => field; private set => field = getSprite.GetData(Species);}
+    public Sprite Sprite {get; private set;} = getSprite.GetData(species);
 
     // Variáveis privadas
 
@@ -69,22 +86,7 @@ public class Pokemon(int id, int level, int friendship, PokemonSpecies species)
     private readonly IGenerate<Typing> getTyping = new GetTyping();
     */
     
-    /// <summary>
-    /// Instanciação do objeto do tipo GetTyping
-    /// </summary>
-    private readonly GetTyping getTyping = new();
-    /// <summary>
-    /// Instanciação do objeto do tipo GetBaseStats
-    /// </summary>
-    private readonly GetBaseStats getBaseStats = new();
-    /// <summary>
-    /// Instanciação do objeto do tipo GetEvolution
-    /// </summary>
-    private readonly GetEvolution getEvolution = new();
-    /// <summary>
-    /// Instanciação do objeto do tipo GetSprite
-    /// </summary>
-    private readonly GetSprite getSprite = new();
+    
 
     // Métodos Públicos
     
@@ -146,7 +148,7 @@ public class Pokemon(int id, int level, int friendship, PokemonSpecies species)
     /// 
     /// Se estiver acima de max, max será retornado
     /// </returns>
-    private int Clamp (int value, int min, int max)
+    private static int Clamp (int value, int min, int max)
     {
         // Condicional que muda o valor de value caso seja menor
         // que min

@@ -2,32 +2,35 @@ public class Process : IProcess
 {
 
     // d.1
-    public void ShowAllPokemon(IStorage storage)
+    public string[] ShowAllPokemon(IStorage storage)
     {
         var aux = storage.ListPokemon();
+        string[] output = new string[storage.GetQuantity()];
 
-        for (int i = 0; i < storage.GetQuantity(); i++)
-            Console.WriteLine($"{i}. {aux[i].Species}");
+        for (int i = 0; i < output.Length; i++)
+            output[i] = $"{aux[i].Id}. {aux[i].Species}";
+        
+        return output;
     }
 
     // d.2
-    public void ShowPokemonInfo(IStorage storage, int position)
+    public string ShowPokemonInfo(IStorage storage, int position)
     {
         var p = storage.GetPokemon(position);
-        var baseStats = p.BaseStats.ToArray();
+        var baseStats = p.BaseStats?.ToArray();
 
-        Console.WriteLine($"{p.Species}, it has the {p.Typing} typing.");
-        Console.WriteLine($"{p.Evolution}");
-        Console.WriteLine();
-        Console.WriteLine($"It has as base stats: ");
-        Console.WriteLine($"HP: {baseStats[0]}");
-        Console.WriteLine($"ATK: {baseStats[1]}");
-        Console.WriteLine($"DEF: {baseStats[2]}");
-        Console.WriteLine($"SPA: {baseStats[3]}");
-        Console.WriteLine($"SPD: {baseStats[4]}");
-        Console.WriteLine($"SPE: {baseStats[5]}");
-        Console.WriteLine();
-        Console.WriteLine($"Your {p.Species} has the Id nº {p.Id},\nis at Level {p.Level} and has\n{p.Friendship} friendship points.");
+        string output = $"{p.Species}, it has the {p.Typing} typing.\n"
+        + $"{p.Evolution}\n\n"
+        + $"It has as base stats:\n"
+        + $"HP: {baseStats?[0]}\n"
+        + $"ATK: {baseStats?[1]}\n"
+        + $"DEF: {baseStats?[2]}\n"
+        + $"SPA: {baseStats?[3]}\n"
+        + $"SPD: {baseStats?[4]}\n"
+        + $"SPE: {baseStats?[5]}\n\n"
+        + $"Your {p.Species} has the Id nº {p.Id},\nis at Level {p.Level} and has\n{p.Friendship} friendship points.";
+
+        return output;
     }
 
     // d.3
@@ -53,17 +56,23 @@ public class Process : IProcess
     }
     
     // d.4
-    public void Evolve(IStorage storage, int position)
+    public bool Evolve(IStorage storage, int position)
     {
-        throw new NotImplementedException();
+        if (position < 0 || position >= storage.GetQuantity())
+            return false;
+
+        return storage.UpdatePokemon(position);
     }
 
     private void OverwriteStorage(IStorage storage, Pokemon[] newList, int size)
     {
+        Pokemon[] copy = new Pokemon[size];
+        Array.Copy(newList, copy, size);
+
         for (int i = 0; i < size; i++)
             storage.RemovePokemon(0);
         
         for (int i = 0; i < size; i++)
-            storage.AddPokemon(newList[i]);
+            storage.AddPokemon(copy[i]); 
     }
 }

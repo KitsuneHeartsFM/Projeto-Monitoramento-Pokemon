@@ -1,4 +1,4 @@
-public abstract class Screen (ScreenManager screenManager, int screenWidth = 1280, int screenHeight = 720)
+public abstract class Screen (ScreenManager screenManager, int screenWidth, int screenHeight)
 {
     protected ScreenManager screenManager = screenManager;
     protected int ScreenWidth = screenWidth;

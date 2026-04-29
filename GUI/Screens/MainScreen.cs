@@ -1,20 +1,14 @@
 using Raylib_cs;
 
-public class TestScreen(ScreenManager screenManager, int screenWidth = 1280, int screenHeight = 720) : Screen(screenManager, screenWidth, screenHeight)
+public class MainScreen(ScreenManager screenManager, int screenWidth, int screenHeight) : Screen(screenManager, screenWidth, screenHeight)
 {
-    private static int selected = 0;
-    private static bool createdPokemon = false;
+    private int selected = 0;
     private const int UPPER_LIMIT = 4;
     private const int LOWER_LIMIT = 0;
     private readonly Process process = new();
 
     public override void Update()
     {
-        if (!createdPokemon)
-        {
-            CreatePokemon();
-        }
-
         if (Raylib.IsKeyPressed(KeyboardKey.Up) || Raylib.IsKeyPressed(KeyboardKey.W))
         {
             selected--;
@@ -45,11 +39,13 @@ public class TestScreen(ScreenManager screenManager, int screenWidth = 1280, int
 
     private void GetText(int x, int y)
     {
+        x -= 25;
+
          // Título
         Raylib.DrawText("Pokemon Project", ScreenWidth / 6, ScreenHeight / 40, 100, Color.Black);
 
         // Menu opções 
-        Raylib.DrawText("Show All Pokemon", x, y, 50, Color.Black);
+        Raylib.DrawText("Show Pokemon", x, y, 50, Color.Black);
         Raylib.DrawText("Your Team", x, y + 64, 50, Color.Black);
         Raylib.DrawText("Your PC", x, y + 64 * 2, 50, Color.Black);
         Raylib.DrawText("Pass Time", x, y + 64 * 3, 50, Color.Black);
@@ -58,7 +54,7 @@ public class TestScreen(ScreenManager screenManager, int screenWidth = 1280, int
 
     private void GetSelection(int x, int y)
     {
-        Raylib.DrawRectangle(x - 64, y, 360, 48, Color.Red);
+        Raylib.DrawRectangle(x - 64, y, 420, 48, Color.Gray);
     }
 
     private void GetAction(int selection)
@@ -66,14 +62,13 @@ public class TestScreen(ScreenManager screenManager, int screenWidth = 1280, int
         switch (selection)
         {
             case 0:
-                process.ShowAllPokemon(screenManager.PokemonManager.Team);
-                process.ShowAllPokemon(screenManager.PokemonManager.Pc);
+                screenManager.DefineScreen(new ListScreen(screenManager, screenWidth, screenHeight));
                 break;
             case 1:
-                screenManager.DefineScreen(new TestTeam(screenManager));
+                screenManager.DefineScreen(new TeamScreen(screenManager, screenWidth, screenHeight));
                 break;
             case 2: 
-                screenManager.DefineScreen(new TestPc(screenManager));
+                screenManager.DefineScreen(new PcScreen(screenManager, screenWidth, screenHeight));
                 break;
             case 3:
                 screenManager.PokemonManager.TimePassing();
@@ -82,11 +77,5 @@ public class TestScreen(ScreenManager screenManager, int screenWidth = 1280, int
                 Raylib.CloseWindow();
                 break;
         }
-    }
-
-    private void CreatePokemon()
-    {
-        screenManager.PokemonManager.GeneratePokemon();
-        createdPokemon = true;
     }
 }

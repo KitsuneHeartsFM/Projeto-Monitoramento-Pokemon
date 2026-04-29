@@ -13,7 +13,8 @@ public class GameTest
         Raylib.SetTargetFPS(TARGET_FPS);
 
         ScreenManager screenManager = new();
-        screenManager.DefineScreen(new TestScreen(screenManager));
+        screenManager.PokemonManager.GeneratePokemon();
+        screenManager.DefineScreen(new TeamScreen(screenManager, WIDTH, HEIGHT));
 
         while (!Raylib.WindowShouldClose())
         {

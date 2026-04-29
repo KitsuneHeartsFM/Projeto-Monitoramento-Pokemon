@@ -15,26 +15,26 @@ public class Evolution (int? nextEvolutionLevel = null, PokemonSpecies? evolvesT
     /// Ele pode ser nulo para o caso do Pokemon ser o último de sua
     /// linha evolutiva
     /// </summary>
-    public int? NextEvolutionLevel {get => field; private set => field = nextEvolutionLevel;}
+    public int? NextEvolutionLevel {get; private set;} = nextEvolutionLevel;
     /// <summary>
     /// Este campo armazena qual Pokemon este se tornará ao evoluir
     /// 
     /// Ele pode ser nulo pelo mesmo motivo de NextEvolutionLevel
     /// </summary>
-    public PokemonSpecies? EvolvesTo {get => field; private set => field = evolvesTo;}
+    public PokemonSpecies? EvolvesTo {get; private set;} = evolvesTo;
     /// <summary>
     /// Este campo armazena em qual nível o Pokemon pode ter evoluído
     /// 
     /// Ele pode nulo para o caso do Pokemon ser o primeiro de sua
     /// linha evolutiva
     /// </summary>
-    public int? LastEvolutionLevel {get => field; private set => field = lastEvolutionLevel;}
+    public int? LastEvolutionLevel {get; private set;} = lastEvolutionLevel;
     /// <summary>
     /// Este campo armazena de qual Pokemon este evoluiu
     /// 
     /// Ele pode ser nulo pelo mesmo motivo de LastEvolutionLevel
     /// </summary>
-    public PokemonSpecies? EvolvedFrom {get => field; private set => field = evolvedFrom;}
+    public PokemonSpecies? EvolvedFrom {get; private set;} = evolvedFrom;
 
     /// <summary>
     /// Uma sobrecarga do método ToString() para retornar os dados a cerca das
@@ -72,7 +72,7 @@ public class Evolution (int? nextEvolutionLevel = null, PokemonSpecies? evolvesT
         // Condicional para sair a impressão do caso 1
         if (NextEvolutionLevel != null && LastEvolutionLevel != null)
         {
-            output = $"It evolved from {EvolvedFrom} at level {LastEvolutionLevel} and may evolve to {EvolvesTo} by the level {NextEvolutionLevel}.";
+            output = $"It evolved from {EvolvedFrom} at level {LastEvolutionLevel}\nand may evolve to {EvolvesTo}\nby the level {NextEvolutionLevel}.";
         }
         // Condicional para sair a impressão do caso 2
         else if (NextEvolutionLevel != null && LastEvolutionLevel == null)

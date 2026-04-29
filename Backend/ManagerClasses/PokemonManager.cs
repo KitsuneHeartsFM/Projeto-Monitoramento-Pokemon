@@ -1,49 +1,65 @@
+using static GetPokemon;
+
 public class PokemonManager
 {
     public IStorage Team {get; private set;}
     public IStorage Pc {get; private set;}
-    private GetPokemon getPokemon;
+    private bool created = false;
 
     public PokemonManager()
     {
         Team = new PokemonTeam();
         Pc = new PokemonPc();
-        getPokemon = new();
     }
 
     public void GeneratePokemon()
     {
-        var pkmn = getPokemon.GetPokemonGroup(10);
+        if (created) return;
+
+        var pkmn = GetPokemonGroup(10);
 
         foreach (var p in pkmn)
             if (!Team.AddPokemon(p))
                 Pc.AddPokemon(p);
+        
+        created = true;
     }
 
-    public void Deposit(int position)
+    public bool Deposit(int position)
     {
         try
         {
             var p = Team.RemovePokemon(position);
 
             Pc.AddPokemon(p);
+
+            return true;
         }   
         catch (PokemonStorageException)
         {
+            return false;
         }
     }
 
-    public void Withdraw(int position)
+    public bool Withdraw(int position)
     {
         try
         {
             var p = Pc.RemovePokemon(position);
+            bool output = true;
 
             if (!Team.AddPokemon(p))
+            {
                 Pc.AddPokemonAtPosition(p, position);
+                output = false;
+            }
+                
+
+            return output;
         }
         catch (PokemonStorageException)
         {
+            return false;
         }
     }
 
@@ -52,10 +68,10 @@ public class PokemonManager
         var TeamList = Team.ListPokemon();
         var PcList = Pc.ListPokemon();
 
-        for (int i = 0; i < Team.GetQuantity(); i++)
-            TeamList[i].FriendshipUp();
+        foreach (var p in TeamList)
+            p.FriendshipUp();
         
-        for (int i = 0; i < Pc.GetQuantity(); i++)
-            PcList[i].FriendshipDown();
+        foreach (var p in PcList)
+            p.FriendshipDown();
     }
 }

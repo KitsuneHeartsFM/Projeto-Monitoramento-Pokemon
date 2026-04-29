@@ -14,7 +14,7 @@ public class Sprite(string? spriteLocation = null)
     /// com a criação de uma string com a localização relativa
     /// do sprite do Pokemon
     /// </summary>
-    public string? SpriteLocation { get => field; private set => field = spriteLocation; }
+    public string? SpriteLocation {get; private set;} = spriteLocation;
     
     /// <summary>
     /// Metodo que retorna o Sprite do Pokemon
