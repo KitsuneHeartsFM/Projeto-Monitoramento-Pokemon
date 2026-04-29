@@ -7,5 +7,5 @@ public interface IProcess
     // d.3  Ordenação dos objetos
     void OrderAll(IStorage storage);
     // d.4  Função única do programa de Complexidade O(n²) ou mais
-    bool Evolve(IStorage storage, int position);
+    void MinMax(IStorage storage, int position);
 }

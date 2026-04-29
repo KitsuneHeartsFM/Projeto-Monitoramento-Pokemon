@@ -14,7 +14,7 @@ public class GameTest
 
         ScreenManager screenManager = new();
         screenManager.PokemonManager.GeneratePokemon();
-        screenManager.DefineScreen(new TeamScreen(screenManager, WIDTH, HEIGHT));
+        screenManager.DefineScreen(new MainScreen(screenManager, WIDTH, HEIGHT));
 
         while (!Raylib.WindowShouldClose())
         {

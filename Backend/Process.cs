@@ -56,15 +56,34 @@ public class Process : IProcess
     }
     
     // d.4
-    public bool Evolve(IStorage storage, int position)
+    // Complexidade O(n²)
+    public void MinMax(IStorage storage, int position)
     {
-        if (position < 0 || position >= storage.GetQuantity())
-            return false;
+        var aux = storage.GetPokemon(position);
 
-        return storage.UpdatePokemon(position);
+        for (int i = 0; i < storage.GetQuantity(); i++)
+        {
+            bool isEvolutionPossible = aux.Evolution.EvolvesTo != null && aux.Evolution.NextEvolutionLevel != null;
+            aux.LevelUp();
+
+            if (isEvolutionPossible)
+                if (aux.Level >= aux.Evolution.NextEvolutionLevel)
+                    storage.UpdatePokemon(i);
+            
+            for (int j = 0; j < storage.GetQuantity(); j++)
+            {
+                if (aux.Friendship < 255)
+                {
+                    int remainingFriendship = 256 - aux.Friendship;
+
+                    for (int k = 0; k < remainingFriendship; k++)
+                        aux.FriendshipUp();
+                }
+            }
+        }
     }
 
-    private void OverwriteStorage(IStorage storage, Pokemon[] newList, int size)
+    private static void OverwriteStorage(IStorage storage, Pokemon[] newList, int size)
     {
         Pokemon[] copy = new Pokemon[size];
         Array.Copy(newList, copy, size);

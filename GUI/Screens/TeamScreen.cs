@@ -1,4 +1,3 @@
-using System.Xml.Serialization;
 using Raylib_cs;
 
 public class TeamScreen(ScreenManager screenManager, int screenWidth, int screenHeight) : Screen(screenManager, screenWidth, screenHeight)
@@ -81,6 +80,7 @@ public class TeamScreen(ScreenManager screenManager, int screenWidth, int screen
         Raylib.DrawText("2 - Level Up Selected", x, y + 65, 50, Color.Green);
         Raylib.DrawText("3 - Evolve Selected", x, y + 130, 50, Color.Green);
         Raylib.DrawText("4 - Deposit at PC", x, y + 195, 50, Color.Green);
+        Raylib.DrawText("5 - Minmax Team", x, y + 260, 50, Color.Green);
     }
 
     private void Actions()
@@ -99,7 +99,8 @@ public class TeamScreen(ScreenManager screenManager, int screenWidth, int screen
         }
         if (Raylib.IsKeyPressed(KeyboardKey.Three))
         {
-            process.Evolve(manager.Team, selected);
+            // process.Evolve(manager.Team, selected);
+            manager.Team.UpdatePokemon(selected);
         }
         if (Raylib.IsKeyPressed(KeyboardKey.Four))
         {
@@ -111,6 +112,11 @@ public class TeamScreen(ScreenManager screenManager, int screenWidth, int screen
                     selected--;
                 }
             }
+        }
+        if (Raylib.IsKeyDown(KeyboardKey.Five))
+        {
+            for (int i = 0; i < UpperLimit; i++)
+                process.MinMax(manager.Team, i);
         }
     }
 }
