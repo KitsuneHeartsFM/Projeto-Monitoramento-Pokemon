@@ -5,10 +5,9 @@ public class Process : IProcess
     public void ShowAllPokemon(IStorage storage)
     {
         var aux = storage.ListPokemon();
-        int index = 1;
 
         for (int i = 0; i < storage.GetQuantity(); i++)
-            Console.WriteLine($"{index++}. {aux[i].Species}");
+            Console.WriteLine($"{i}. {aux[i].Species}");
     }
 
     // d.2

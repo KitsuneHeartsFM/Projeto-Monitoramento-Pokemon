@@ -4,7 +4,7 @@ public class GameTest
 {
     private const int WIDTH = 1280;
     private const int HEIGHT = 720;
-    private const string TITLE = "Projeto Monitoramento Pokemon";
+    private const string TITLE = "Pokemon Monitoring Project";
     private const int TARGET_FPS = 60;
 
     public void Run()
