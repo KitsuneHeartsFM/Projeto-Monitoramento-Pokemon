@@ -12,13 +12,6 @@ public class GetTyping : IGenerate<Typing>
     /// computador soubesse qual é o tipo primário só de bater 
     /// o olho, basicamente um tempo constante
     /// </summary>
-    /// <param name="species"> A espécie a ser inserida </param>
-    /// <returns> O tipo primário do Pokemon inserido </returns>
-    /// <exception cref="NonExistentPokemon">
-    /// Esta exceção customizada é disparada nos casos
-    /// onde a espécie Pokemon inserida seja uma que ainda
-    /// não foi registrada dentro do código do programa
-    /// </exception>
     private Types GetPrimary(PokemonSpecies species)
     {
         return species switch
@@ -76,22 +69,10 @@ public class GetTyping : IGenerate<Typing>
     /// 
     /// Complexidade O(1) pelo mesmo motivo que seu irmão é
     /// O(1)
+    /// 
+    /// O código returna nulo se a espécie inserida for monotipo,
+    /// isto é, não tem tipo secundário
     /// </summary>
-    /// <param name="species"> A espécie Pokemon registada </param>
-    /// <returns>
-    /// Um switch case é usado para definir qual o retorno ideal,
-    /// se um Pokemon com tipagem dupla foi inserido então a tipagem
-    /// secundária será retornada, caso o contrário apenas retornará
-    /// um valor nulo
-    /// 
-    /// Repare que, diferente de seu irmão, este método NÃO
-    /// dispara exceção. Isto acontece pois há Pokemons que
-    /// foram inseridos previamente no programa mas que são
-    /// monotipos, isto é, que possuem apenas 1 único tipo vide
-    /// Sceptile sendo grama puro ou Gardevoir sendo psiquico puro
-    /// 
-    /// Por questão de conveniência, o retorno padrão é sempre o nulo
-    /// </returns>
     private Types? GetSecondary(PokemonSpecies species)
     {
         return species switch

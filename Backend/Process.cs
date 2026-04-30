@@ -1,7 +1,16 @@
+/// <summary>
+/// A classe com as operações d.1, d.2, d.3 e d.4
+/// </summary>
 public class Process : IProcess
 {
 
     // d.1
+    /// <summary>
+    /// O método que lista todos os Pokemons armazenados
+    /// 
+    /// Complexidade O(n) pois seu tempo de execução depende de quantos 
+    /// Pokemons estão sendo armazenados no momento
+    /// </summary>
     public string[] ShowAllPokemon(IStorage storage)
     {
         var aux = storage.ListPokemon();
@@ -14,6 +23,12 @@ public class Process : IProcess
     }
 
     // d.2
+    /// <summary>
+    /// Método que retorna informações individuais de um Pokemon escolhido
+    /// 
+    /// Complexidade O(1) por ser um método ToString() gourmetizado mas ainda
+    /// com tempo constante de execução
+    /// </summary>
     public string ShowPokemonInfo(IStorage storage, int position)
     {
         var p = storage.GetPokemon(position);
@@ -34,6 +49,13 @@ public class Process : IProcess
     }
 
     // d.3
+    /// <summary>
+    /// Método de ordenação dos Pokemons armazenados por nível
+    /// e em ordem ascendente
+    /// 
+    /// Complexidade O(n²) pois utiliza um algorítmo de bubbleSort
+    /// para fazer a ordenação
+    /// </summary>
     public void OrderAll(IStorage storage)
     {
         var pkmn = storage.ListPokemon();
@@ -56,7 +78,16 @@ public class Process : IProcess
     }
     
     // d.4
-    // Complexidade O(n²)
+    /// <summary>
+    /// Método para upar todos os Pokemons armazenados até o nível 100, 
+    /// além de deixar eles com 255 de amizade e evoluir eles
+    /// 
+    /// Complexidade O(n²) pois pega todos os Pokemons armazenados, aumenta seus níveis 
+    /// e analisa individualmente se eles podem evoluir, se sim eles evoluem dentro do loop
+    /// 
+    /// dentro desse loop inicial outro loop é criado para se certificar que todos os Pokemons
+    /// tenham suas amizades aumentadas até o máximo
+    /// </summary>
     public void MinMax(IStorage storage, int position)
     {
         var aux = storage.GetPokemon(position);

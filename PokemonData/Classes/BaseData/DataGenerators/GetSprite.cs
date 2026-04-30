@@ -12,16 +12,6 @@ public class GetSprite : IGenerate<Sprite>
     /// fazendo assim o tempo de execução ser sempre
     /// constante
     /// </summary>
-    /// <param name="species"> A espécie do Pokemon a ser inserida </param>
-    /// <returns>
-    /// Se tudo ocorrer bem, o método irá retornar um objeto
-    /// do tipo Sprite que recebe como parâmetro a localização
-    /// relativa do sprite do Pokemon
-    /// </returns>
-    /// <exception cref="NonExistentPokemon">
-    /// Caso ocorra de inserir um Pokemon indisponível,
-    /// esta exceção será disparada
-    /// </exception>
     public Sprite GetData(PokemonSpecies species)
     {
         return species switch

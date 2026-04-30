@@ -1,10 +1,6 @@
 /// <summary>
 /// A classe do objeto do Pokemon propriamente dito
 /// </summary>
-/// <param name="id"> o "CPF" do Pokemon </param>
-/// <param name="level"> o nível do Pokemon </param>
-/// <param name="friendship"> a amizade do Pokemon com o treinador</param>
-/// <param name="species"> a espécie do Pokemon </param>
 public class Pokemon(int id, int level, int friendship, PokemonSpecies species)
 {
     // Campos que recebem diretamante dados do construtor
@@ -46,6 +42,9 @@ public class Pokemon(int id, int level, int friendship, PokemonSpecies species)
     /// </summary>
     private static GetSprite getSprite = new();
 
+    // variáveis estáticas precisam ser criadas antes de 
+    // serem implementadas
+
     // Campos derivados de Species
 
     /// <summary>
@@ -77,14 +76,6 @@ public class Pokemon(int id, int level, int friendship, PokemonSpecies species)
     /// </summary>
     public Sprite Sprite {get; private set;} = getSprite.GetData(species);
 
-    // Variáveis privadas
-
-    /* TODO
-    1. Se viável, fatorar todas as variáveis privadas abaixo para que todas elas
-    sejam inicializadas a partir de IGenerate<T>, Ex.:
-
-    private readonly IGenerate<Typing> getTyping = new GetTyping();
-    */
     
     
 
@@ -138,16 +129,6 @@ public class Pokemon(int id, int level, int friendship, PokemonSpecies species)
     /// Complexidade O(1) por terem poucos passos necessários para sua
     /// execução
     /// </summary>
-    /// <param name="value"> O valor principal a ser inserido </param>
-    /// <param name="min"> O menor valor possível </param>
-    /// <param name="max"> O maior valor possível </param>
-    /// <returns>
-    /// Se o valor principal estiver entre min e max, ele será retornado
-    /// 
-    /// Se estiver abaixo de min, min será retornado
-    /// 
-    /// Se estiver acima de max, max será retornado
-    /// </returns>
     private static int Clamp (int value, int min, int max)
     {
         // Condicional que muda o valor de value caso seja menor

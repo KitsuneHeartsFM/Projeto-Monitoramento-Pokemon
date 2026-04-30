@@ -27,8 +27,6 @@ public static class GetPokemon
     /// Complexidade O(1) pois as únicas operações que ocorrem
     /// são duas inicializações e um retorno de um Pokemon
     /// </summary>
-    /// <param name="species"> A espécie do Pokemon a ser inserida </param>
-    /// <returns> Uma instância de um objeto do tipo Pokemon </returns>
     public static Pokemon GetData(PokemonSpecies species)
     {
         // instancia randomizada do nível do Pokemon entre 1 e 100
@@ -48,11 +46,6 @@ public static class GetPokemon
     /// Complexidade O(n) pois seu tempo de execução depende de quantos
     /// Pokemons o usuário deseja criar
     /// </summary>
-    /// <param name="amount"> Quantos Pokemons o usuário deseja gerar </param>
-    /// <returns>
-    /// Um array de objetos do tipo Pokemon cujo tamanho é igual ao valor
-    /// definido no parâmetro amount
-    /// </returns>
     public static Pokemon[] GetPokemonGroup(int amount)
     {
         // Variável com os dados de retorno do método

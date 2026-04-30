@@ -3,10 +3,6 @@
 /// e Typing, a diferença sendo que esta em especial armazena
 /// dados envolvendo evoluções de Pokemons em geral
 /// </summary>
-/// <param name="nextEvolutionLevel?"> Em que nível o Pokemon pode evoluir </param>
-/// <param name="evolvesTo?"> Para qual Pokemon pode evoluir </param>
-/// <param name="lastEvolutionLevel?"> Em que nível ele pode ter evoluido </param>
-/// <param name="evolvedFrom?"> De qual Pokemon ele evoluiu </param>
 public class Evolution (int? nextEvolutionLevel = null, PokemonSpecies? evolvesTo = null, int? lastEvolutionLevel = null, PokemonSpecies? evolvedFrom = null)
 {
     /// <summary>
@@ -39,31 +35,14 @@ public class Evolution (int? nextEvolutionLevel = null, PokemonSpecies? evolvesT
     /// <summary>
     /// Uma sobrecarga do método ToString() para retornar os dados a cerca das
     /// evoluções do Pokemon
+    /// 
+    /// Complexidade O(1) por não ter loop de interação nem nada para aumentar
+    /// o tempo de execução
+    /// 
+    /// Retorna coisa se estiver no meio da linha evolutiva (caso 1), se estiver
+    /// no início da linha evolutiva (caso 2) ou se estiver no fim da linha evolutiva
+    /// (caso 3)
     /// </summary>
-    /// <returns>
-    /// A depender se os campos NextEvolutionLevel e/ou LastEvolutionLevel 
-    /// (NEL e LEL respectivamente para simplificar a explicação) são nulos
-    /// ou não. Sendo eles:
-    /// 
-    /// 1. Se nem NEL nem LEL são nulos: retorna uma string dizendo que o 
-    /// Pokemon evolui de Pokemon A no nível X e que pode evoluir para o 
-    /// Pokemon B pelo nível Y
-    /// 
-    /// Este é o retorno para Pokemons do meio da linha evolutiva tipo 
-    /// Grovyle, Combusken e Marshtomp
-    /// 
-    /// 2. Se apenas LEL é nulo: retorna que o Pokemon pode evoluir para
-    /// Pokemon A pelo nível X
-    /// 
-    /// Este é o retorno para Pokemons do início da linha evolutiva tipo
-    /// Treecko, Torchich e Mudkip
-    /// 
-    /// 3. Se apenas NEL é nulo: retorna que o Pokemon evoluiu de Pokemon A
-    /// no nível X
-    /// 
-    /// Este é o retorno para Pokemóns do fim da linha evolutiva tipo 
-    /// Sceptile, Blaziken e Swampert
-    /// </returns>
     public override string ToString()
     {
         // A variável responsável por armazenar a impressão final

@@ -8,17 +8,6 @@ public class GetEvolution : IGenerate<Evolution>
     /// Método que retorna dados envolvendo as linhas evolutivas
     /// dos Pokemons inseridos
     /// </summary>
-    /// <param name="species"> A espécie Pokemon a ser inserida </param>
-    /// <returns>
-    /// Se tudo ocorrer dentro dos conformes, retornará um objeto
-    /// do tipo Evolution com os dados envolvendo as evoluções do
-    /// Pokemon inserido
-    /// </returns>
-    /// <exception cref="NonExistentPokemon">
-    /// Esta exceção será disparada para o caso onde
-    /// o Pokemon inserido não seja um válido para o
-    /// método
-    /// </exception>
     public Evolution GetData(PokemonSpecies species)
     {
         return species switch

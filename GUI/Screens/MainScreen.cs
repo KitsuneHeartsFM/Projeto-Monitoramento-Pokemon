@@ -1,11 +1,27 @@
+// chamada da biblioteca Raylib
 using Raylib_cs;
 
+/// <summary>
+/// A classe da tela principal do programa
+/// </summary>
 public class MainScreen(ScreenManager screenManager, int screenWidth, int screenHeight) : Screen(screenManager, screenWidth, screenHeight)
 {
+    /// <summary>
+    /// variável de controle das operações da tela
+    /// </summary>
     private int selected = 0;
+    /// <summary>
+    /// constante de controle que delimita as operações da tela
+    /// </summary>
     private const int UPPER_LIMIT = 4;
+    /// <summary>
+    /// constante de controle que delimita as operações da tela
+    /// </summary>
     private const int LOWER_LIMIT = 0;
-    private readonly Process process = new();
+    /// <summary>
+    /// Inicialização da classe Process
+    /// </summary>
+    private Process process = new();
 
     public override void Update()
     {

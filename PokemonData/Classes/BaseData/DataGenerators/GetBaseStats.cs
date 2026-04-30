@@ -12,21 +12,6 @@ public class GetBaseStats : IGenerate<BaseStats>
     /// Complexidade O(1) pois faz apenas uma checagem
     /// antes de executar sua função primária
     /// </summary>
-    /// <param name="species"> A espécie Pokemon registrada</param>
-    /// <returns>
-    /// Os pontos base da espécie Pokemon registrada
-    /// 
-    /// O programa utiliza de um switch case para fazer
-    /// os retornos
-    /// </returns>
-    /// <exception cref="NonExistentPokemon">
-    /// Esta é uma trava de segurança do método
-    /// 
-    /// Caso um valor inválido (Ex: Pokemon da Gen 4 sendo que o 
-    /// programa se limita a apenas Pokemons da Gen 3), a exceção
-    /// customizada NonExistentPokemon é disparada para fins de 
-    /// evitar complicações futuras
-    /// </exception>
     public BaseStats GetData(PokemonSpecies species)
     {
         // Uma diretiva return misturada com switch case
@@ -93,11 +78,6 @@ public class GetBaseStats : IGenerate<BaseStats>
     /// para impactar negativamente o tempo de execução de forma
     /// significativa
     /// </summary>
-    /// <param name="species">A espécie Pokemon registrada</param>
-    /// <returns>
-    /// Um Array de inteiros com os 6 itens da propriedade ToArray
-    /// da classe BaseStats
-    /// </returns>
     public int[] GetDataArray(PokemonSpecies species)
     {
         // Acho que isso não precisa de explicação do que faz né?

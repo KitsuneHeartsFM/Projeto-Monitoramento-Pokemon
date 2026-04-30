@@ -3,7 +3,6 @@
 /// para fazer operações envolvendo armazenamento
 /// de Pokemons no PC
 /// </summary>
-/// <param name="size"> O tamanho inicial do PC</param>
 public class PokemonPc(int size = 4) : IStorage
 {
     /// <summary>
@@ -23,17 +22,14 @@ public class PokemonPc(int size = 4) : IStorage
     private int quantity = 0;
 
     /// <summary>
-    /// Implementação de AddPokemon de IStorage
+    /// Implementação de AddPokemon de IStorage para adicionar um Pokemon
+    /// ao Pc
     /// 
     /// Complexidade O(n+1) pois seu tempo de execução depende de quantos 
     /// Pokemons estão no PC, se não extrapola o limite do arrayList
     /// interno o tempo é o mesmo de O(1), caso contrário o tempo será 
     /// o de O(n) mesmo
     /// </summary>
-    /// <param name="pokemon"> O pokemon a ser adicionado </param>
-    /// <returns>
-    /// Verdadeiro se o Pokemon foi adicionado, falso se deu errado
-    /// </returns>
     public bool AddPokemon(Pokemon pokemon)
     {
         if (quantity >= pc.Length)
@@ -46,18 +42,14 @@ public class PokemonPc(int size = 4) : IStorage
     }
 
     /// <summary>
-    /// Implementação de AddPokemonAtPosition de IStorage
+    /// Implementação de AddPokemonAtPosition de IStorage para adicionar um 
+    /// Pokemon ao Pc numa posição específica
     /// 
     /// Complexidade (m*n), pois o seu tempo de execução dependem
     /// de quantos Pokemons estão presentes no PC (definido por m)
     /// e em qual posição o usuário deseja adicionar o Pokemon 
     /// (definido por n)
     /// </summary>
-    /// <param name="pokemon"> O Pokemon a ser adicionado </param>
-    /// <param name="position"> A posição onde o Pokemon será adicionado </param>
-    /// <returns>
-    /// Verdadeiro se o Pokemon foi adicionado, falso se deu errado
-    /// </returns>
     public bool AddPokemonAtPosition(Pokemon pokemon, int position)
     {
         if (position < 0 || position > quantity) 
@@ -75,16 +67,12 @@ public class PokemonPc(int size = 4) : IStorage
     }
 
     /// <summary>
-    /// Implementação de GetPokemon de IStorage
+    /// Implementação de GetPokemon de IStorage para retornar
+    /// o objeto do Pokemon escolhido
     /// 
     /// Complexidade O(1) por operar utilizando apenas
     /// uma simples procura de índice
     /// </summary>
-    /// <param name="position"> A posição onde o Pokemon se encontra </param>
-    /// <returns> O objeto do Pokemon escolhido </returns>
-    /// <exception cref="PokemonStorageException">
-    /// Ela é disparada para caso tente escolher um Pokemon numa posição inválida
-    /// </exception>
     public Pokemon GetPokemon(int position)
     {
         if (position < 0 || position >= quantity)
@@ -94,17 +82,12 @@ public class PokemonPc(int size = 4) : IStorage
     }
 
     /// <summary>
-    /// Implementação de RemovePokemon de IStorage
+    /// Implementação de RemovePokemon de IStorage para remover
+    /// um Pokemon escolhido 
     /// 
     /// Complexidade O(n) pois seu tempo de execução depende
     /// de quantos Pokemons estão no PC
     /// </summary>
-    /// <param name="position"> A posição do Pokemon a ser removido</param>
-    /// <returns> O objeto do Pokemon a ser removido </returns>
-    /// <exception cref="PokemonStorageException">
-    /// Ela é disparada para caso o usuário tente remover um Pokemon em um
-    /// índice inválido
-    /// </exception>
     public Pokemon RemovePokemon(int position)
     {
         if (position < 0 || position >= quantity)
@@ -122,25 +105,23 @@ public class PokemonPc(int size = 4) : IStorage
     }
 
     /// <summary>
-    /// Implementação de ListPokemon de IStorage
+    /// Implementação de ListPokemon de IStorage para retornar
+    /// o array interno da classe 
     /// 
     /// Complexidade O(1) por ser apenas um get()
-    /// </summary>
-    /// <returns> O Array com os Pokemons no PC </returns>
     public Pokemon[] ListPokemon()
     {
         return pc;
     }
 
     /// <summary>
-    /// Implementação de Move de IStorage
+    /// Implementação de Move de IStorage para mover Pokemons
+    /// de uma posição a para uma posição b
     /// 
     /// Complexidade O(1) por mexer apenas com
     /// procura de indices de array, fazendo o tempo
     /// de execução ser sempre constante
     /// </summary>
-    /// <param name="pos1"> A posição inicial </param>
-    /// <param name="pos2"> A posição final </param>
     public void Move(int pos1, int pos2)
     {
         if (pos1 < 0 || pos2 < 0||pos1 >= quantity || pos2 >= quantity)
@@ -152,11 +133,11 @@ public class PokemonPc(int size = 4) : IStorage
     }
 
     /// <summary>
-    /// Implementação de GetQuantity de IStorage
+    /// Implementação de GetQuantity de IStorage para 
+    /// retornar a quantidade de Pokemons no Pc
     /// 
     /// Complexidade O(1) por ser apenas um get()
     /// </summary>
-    /// <returns> A quantidade de Pokemons no PC </returns>
     public int GetQuantity()
     {
         return quantity;
@@ -183,6 +164,13 @@ public class PokemonPc(int size = 4) : IStorage
         pc = newPc;
     }
 
+    /// <summary>
+    /// Implementação de UpdatePokemon de IStorage para atualizar
+    /// os dados de um Pokemon
+    /// 
+    /// Complexidade O(1) pois aqui no Pc ela não faz nada, só tá aí
+    /// por questão evolutiva igual é com o apêndice perto do intestíno
+    /// </summary>
     public bool UpdatePokemon(int position)
     {
         return false;

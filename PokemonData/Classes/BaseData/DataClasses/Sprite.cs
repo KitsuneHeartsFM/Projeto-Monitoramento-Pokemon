@@ -1,4 +1,6 @@
+// chamada da biblioteca principal Raylib
 using Raylib_cs;
+// chamada dos métodos estáticos do Raylib
 using static Raylib_cs.Raylib;
 
 /// <summary>
@@ -6,7 +8,6 @@ using static Raylib_cs.Raylib;
 /// do Pokemon, para futuramente ser utilizado na parte
 /// gráfica do programa
 /// </summary>
-/// <param name="spriteLocation"> O caminho para o sprite</param>
 public class Sprite(string? spriteLocation = null)
 {
     /// <summary>
@@ -23,11 +24,6 @@ public class Sprite(string? spriteLocation = null)
     /// que chamar ele aqui continua fazendo o método ter complexidade O(1), talvez 
     /// O(log n) se forçar a barra
     /// </summary>
-    /// <returns>
-    /// Um objeto do tipo Texture2D que carrega a textura do Pokemon
-    /// a partir do método LoadTexture que, por sua vez, recebe 
-    /// SpriteLocation como parâmetro
-    /// </returns>
     public Texture2D GetSprite()
     {
         return LoadTexture(SpriteLocation);

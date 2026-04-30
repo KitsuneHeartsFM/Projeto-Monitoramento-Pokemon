@@ -12,8 +12,6 @@
 /// onde é necessário colocar coisas extras no construtor, é mais recomendado 
 /// usar um construtor padrão mesmo
 /// </summary>
-/// <param name="primaryType"> O tipo principal do Pokemon </param>
-/// <param name="secondaryType?"> O tipo secundário do Pokemon</param>
 public class Typing (Types primaryType, Types? secondaryType = null)
 {
     /// <summary>
@@ -34,25 +32,12 @@ public class Typing (Types primaryType, Types? secondaryType = null)
 
     /// <summary>
     /// Uma sobrecarga no método ToSttring() derivado da classe Object
+    /// que imprime a tipagem do Pokemon, sendo apenas o tipo primário
+    /// se a espécie for monotipo ou ambos os tipos primário e secundário
+    /// se tiver 2 tipos
+    /// 
+    /// Complexidade O(1) por ser um retorno de informações de tempo constante
     /// </summary>
-    /// <returns>
-    /// Um de dois casos será impresso
-    /// 
-    /// 1. Apenas o tipo primário do Pokemon se for monotipo
-    /// Ex.: Fogo
-    /// 
-    /// ou
-    /// 
-    /// 2. Ambos os tipos primário e secundário do Pokemon
-    /// Ex.: Água/Terra
-    /// 
-    /// A impressão será definida pro um if ternário que verifica
-    /// se o campo SecondaryType contém valor nulo. Se sim, o caso
-    /// 1 será o impresso, caso o contrário o impresso será o caso 2
-    /// 
-    /// Ps.: Os tipos terão sua nomenclatura em inglês, ex.:
-    /// Fogo, Água e Grama serão exibidos como Fire, Water e Grass respectivamente
-    /// </returns>
     public override string ToString()
     {
         // O if ternário que decide qual será a impressão de ToString()
@@ -61,10 +46,11 @@ public class Typing (Types primaryType, Types? secondaryType = null)
 
     /// <summary>
     /// Método privado que chama a exceção customizada InvalidTypingException
+    /// para caso dê ruim e o tipo secundário inserido seja igual ao tipo primário
+    /// 
+    /// Complexidade O(1) pois não há espaço para entradas que afetem negativamente
+    /// o seu tempo de execução
     /// </summary>
-    /// <exception cref="InvalidTypingException">
-    /// Se ambos PrimaryType e SecondaryType forem iguais, a exceção é disparada
-    /// </exception>
     private static Types? CheckTypeValidity(Types input1, Types? input2)
     {
         var output = input2;

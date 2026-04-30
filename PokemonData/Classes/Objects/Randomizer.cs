@@ -1,5 +1,12 @@
+/// <summary>
+/// Classe estática para a parte randômica do projeto
+/// </summary>
 public static class Randomizer
 {
+    /// <summary>
+    /// Método estático que retorna um Pokemon aleatório
+    /// entre os registrados no projeto
+    /// </summary>
     public static PokemonSpecies Randomize()
     {
         Random random = new();

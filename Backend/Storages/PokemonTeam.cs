@@ -36,8 +36,6 @@ public class PokemonTeam : IStorage
     /// Complexidade O(1) pois não importa o Pokemon adicionado,
     /// o tempo de execução sempre será o mesmo
     /// </summary>
-    /// <param name="pokemon"> O pokemon a ser inserido </param>
-    /// <returns> Verdadeiro se adicionar o Pokemon, falso se der errado</returns>
     public bool AddPokemon(Pokemon pokemon)
     {
         if (quantity >= 6)
@@ -58,9 +56,6 @@ public class PokemonTeam : IStorage
     /// de quantos Pokemons estão no time e em qual posição se deseja
     /// colocar o Pokemon
     /// </summary>
-    /// <param name="pokemon"> O Pokemon a ser adicionado </param>
-    /// <param name="position"> A posição onde ele será adicionado </param>
-    /// <returns> Verdadeiro se adicionou o Pokemon, falso se deu errado</returns>
     public bool AddPokemonAtPosition(Pokemon pokemon, int position)
     {
         if (quantity >= 6 || position < 0 || position > quantity)
@@ -76,11 +71,12 @@ public class PokemonTeam : IStorage
     }
 
     /// <summary>
+    /// Implementação de GetPokemon de IStorage que retorna
+    /// o Pokmeon escolhido
     /// 
+    /// Complexidade O(1) pois é uma procura de índice de array
+    /// de tempo constante
     /// </summary>
-    /// <param name="position"></param>
-    /// <returns></returns>
-    /// <exception cref="PokemonStorageException"></exception>
     public Pokemon GetPokemon(int position)
     {
         if (position < 0 || position >= quantity)
@@ -90,17 +86,12 @@ public class PokemonTeam : IStorage
     }
 
     /// <summary>
-    /// Implementação de RemovePokemon de IStorage
+    /// Implementação de RemovePokemon de IStorage que retorna o
+    /// Pokemon removido
     /// 
     /// Sua complexidade é O(n) pois depende de quantos Pokemons
     /// tem no time e da posição onde deseja remover um Pokemon
     /// </summary>
-    /// <param name="position"> A posição do Pokemon que deseja remover </param>
-    /// <returns> Um objeto do Pokemon removido </returns>
-    /// <exception cref="PokemonStorageException"> 
-    /// Ela é disparada se o usuário tentar remover um Pokemon em um
-    /// índice inválido
-    /// </exception>
     public Pokemon RemovePokemon(int position)
     {
         if (position < 0 || position >= quantity)
@@ -118,11 +109,11 @@ public class PokemonTeam : IStorage
     }
 
     /// <summary>
-    /// Implementação de ListPokemon de IStorage
+    /// Implementação de ListPokemon de IStorage para retornar o 
+    /// array interno de PokemonTeam
     /// 
     /// Complexidade O(1) pois faz apenas uma operação de get()
     /// </summary>
-    /// <returns> O array com os Pokemons no time </returns>
     public Pokemon[] ListPokemon()
     {
         return team;
@@ -136,8 +127,6 @@ public class PokemonTeam : IStorage
     /// pois não move o array interno, apenas sobreescreve itens em índices
     /// pré-definidos, e procura de índice costuma ser O(1)
     /// </summary>
-    /// <param name="pos1"> Posição inicial </param>
-    /// <param name="pos2"> Posição final </param>
     public void Move(int pos1, int pos2)
     {
         if (pos1 < 0 || pos2 < 0||pos1 >= quantity || pos2 >= quantity)
@@ -149,16 +138,30 @@ public class PokemonTeam : IStorage
     }
 
     /// <summary>
-    /// Implementação de GetQuantity de IStorage
+    /// Implementação de GetQuantity de IStorage para retornar 
+    /// quantos Pokemons estão no time
     /// 
     /// Complexidade O(1) pois é apenas um método get()
     /// </summary>
-    /// <returns> Um int com a quantidade de Pokemons no time </returns>
     public int GetQuantity()
     {
         return quantity;
     }
 
+    /// <summary>
+    /// Implementação de UpdatePokemon IStorage
+    /// 
+    /// Primeiro checa se a posição inserida é válida, depois pega
+    /// os dados do Pokemon inserido, se ele evolui para algum Pokemon
+    /// e se ele tem nível para poder evoluir
+    /// 
+    /// depois um novo objeto do tipo Pokemon com todas as características
+    /// do Pokemon previamente escolhido menos sua espécie é criado e o substitui
+    /// no índice escolhido do array
+    /// 
+    /// Complexidade O(1) pois mesmo com esse tanto de passo o método ainda possui
+    /// tempo de execução constante
+    /// </summary>
     public bool UpdatePokemon(int position)
     {
         if (position < 0 || position >= quantity)
@@ -179,6 +182,9 @@ public class PokemonTeam : IStorage
         return true;
     }
 
+    /// <summary>
+    /// Método privado que cria objeto do tipo Pokemon
+    /// </summary>
     private Pokemon CreatePokemon(int id, int level, int friendship, PokemonSpecies species)
     {
         return new(id, level, friendship, species);

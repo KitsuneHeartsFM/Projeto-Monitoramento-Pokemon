@@ -1,13 +1,32 @@
+// chamada da biblioteca Raylib
 using Raylib_cs;
 
+/// <summary>
+/// A classe com a lista de todos os Pokemons registrados, meio que como se fosse 
+/// a Pokedex do programa
+/// </summary>
 public class ListScreen(ScreenManager screenManager, int screenWidth, int screenHeight) : Screen(screenManager, screenWidth, screenHeight)
 {
+    /// <summary>
+    /// Constante de controle para delimitar as operações na tela
+    /// </summary>
     private const int UPPER_LIMIT = 9;
+    /// <summary>
+    /// Constante de controle para delimitar as operações na tela
+    /// </summary>
     private const int LOWER_LIMIT = 0;
-
+    /// <summary>
+    /// Inicialização da classe Process
+    /// </summary>
     private Process process = new();
+    /// <summary>
+    /// Variável de controle das operações na tela
+    /// </summary>
     private int selected = 0;
 
+    /// <summary>
+    /// Método que registra os inputs do usuário
+    /// </summary>
     public override void Update()
     {
         if (Raylib.IsKeyPressed(KeyboardKey.Up) || Raylib.IsKeyPressed(KeyboardKey.W))
@@ -27,6 +46,9 @@ public class ListScreen(ScreenManager screenManager, int screenWidth, int screen
         }
     }
 
+    /// <summary>
+    /// Método que desenha coisa na tela
+    /// </summary>
     public override void Draw()
     {
         Raylib.ClearBackground(Color.White);
@@ -36,6 +58,13 @@ public class ListScreen(ScreenManager screenManager, int screenWidth, int screen
         DrawPokeInfo();
     }
 
+    /// <summary>
+    /// Método que mostra todos os Pokemons registrados
+    /// 
+    /// Complexidade O(m*n) por seu tempo de execução 
+    /// depender de quantos Pokemons estão no time (m)
+    /// e quantos estão no Pc(n)
+    /// </summary>
     private void GetPokeRegistry()
     {
         Raylib.DrawText("All registered Pokemon", ScreenWidth / 24, ScreenHeight / 40, 100, Color.Black);
@@ -57,6 +86,9 @@ public class ListScreen(ScreenManager screenManager, int screenWidth, int screen
         Raylib.DrawText($"Backscape - Exit", x, y + 465, 40, Color.Red);
     }
 
+    /// <summary>
+    /// Método que desenha o bichinho de seleção de Pokemon
+    /// </summary>
     private void GetSelection()
     {
         int x = 0;
@@ -64,6 +96,10 @@ public class ListScreen(ScreenManager screenManager, int screenWidth, int screen
         Raylib.DrawRectangle(x, y + (selected * 45), 320, 48, Color.Red);
     }
 
+    /// <summary>
+    /// Método que desenha não apenas a imagem do Pokemon escolhido
+    /// como também o textinho com suas informações pessoais
+    /// </summary>
     private void DrawPokeInfo()
     {
         int x1 = (int)(ScreenWidth*0.25);

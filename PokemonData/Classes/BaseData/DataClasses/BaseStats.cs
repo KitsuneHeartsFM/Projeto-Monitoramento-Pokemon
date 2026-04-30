@@ -48,9 +48,6 @@ public class BaseStats(int hp, int atk, int def, int spa, int spd, int spe)
     /// Complexidade O(1) pois apenas retorna os dados inseridos no
     /// objeto BaseStats
     /// </summary>
-    /// <returns>
-    /// Array de inteiros de tamanho 6 com os status base do Pokemon
-    /// </returns>
     public int[] ToArray()
     {
         // Uma feature curiosa da linguagem C#.
