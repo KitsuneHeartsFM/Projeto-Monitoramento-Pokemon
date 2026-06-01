@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/kitsune/Programação/Faculdade/Projeto-Monitoramento-Pokemon/Projeto-Monitoramento-Pokemon.csproj": {}
+    "/home/kitsune/Programming/Projeto-Monitoramento-Pokemon/Projeto-Monitoramento-Pokemon.csproj": {}
   },
   "projects": {
-    "/home/kitsune/Programação/Faculdade/Projeto-Monitoramento-Pokemon/Projeto-Monitoramento-Pokemon.csproj": {
+    "/home/kitsune/Programming/Projeto-Monitoramento-Pokemon/Projeto-Monitoramento-Pokemon.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/kitsune/Programação/Faculdade/Projeto-Monitoramento-Pokemon/Projeto-Monitoramento-Pokemon.csproj",
+        "projectUniqueName": "/home/kitsune/Programming/Projeto-Monitoramento-Pokemon/Projeto-Monitoramento-Pokemon.csproj",
         "projectName": "Projeto-Monitoramento-Pokemon",
-        "projectPath": "/home/kitsune/Programação/Faculdade/Projeto-Monitoramento-Pokemon/Projeto-Monitoramento-Pokemon.csproj",
+        "projectPath": "/home/kitsune/Programming/Projeto-Monitoramento-Pokemon/Projeto-Monitoramento-Pokemon.csproj",
         "packagesPath": "/home/kitsune/.nuget/packages/",
-        "outputPath": "/home/kitsune/Programação/Faculdade/Projeto-Monitoramento-Pokemon/obj/",
+        "outputPath": "/home/kitsune/Programming/Projeto-Monitoramento-Pokemon/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/kitsune/.nuget/NuGet/NuGet.Config"
@@ -66,7 +66,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/10.0.104/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/10.0.108/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.CSharp": "(,4.7.32767]",
             "Microsoft.VisualBasic": "(,10.4.32767]",

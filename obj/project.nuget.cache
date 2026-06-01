@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nfbrCXrAh9A=",
+  "dgSpecHash": "6WxQIPvGFqc=",
   "success": true,
-  "projectFilePath": "/home/kitsune/Programação/Faculdade/Projeto-Monitoramento-Pokemon/Projeto-Monitoramento-Pokemon.csproj",
+  "projectFilePath": "/home/kitsune/Programming/Projeto-Monitoramento-Pokemon/Projeto-Monitoramento-Pokemon.csproj",
   "expectedPackageFiles": [
     "/home/kitsune/.nuget/packages/raylib-cs/7.0.2/raylib-cs.7.0.2.nupkg.sha512"
   ],
